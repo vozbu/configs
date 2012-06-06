@@ -31,34 +31,49 @@ shopt -s cdspell
 export PATH="$HOME/bin:$PATH"
 export MAKEFLAGS="-j4"
 
-# setup color variables
-color_is_on=
-color_red=
-color_green=
-color_yellow=
-color_blue=
-color_white=
-color_gray=
-color_bg_red=
-color_off=
-color_user=
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    color_is_on=true
-    color_red="\[$(/usr/bin/tput setaf 1)\]"
-    color_green="\[$(/usr/bin/tput setaf 2)\]"
-    color_yellow="\[$(/usr/bin/tput setaf 3)\]"
-    color_blue="\[$(/usr/bin/tput setaf 6)\]"
-    color_white="\[$(/usr/bin/tput setaf 7)\]"
-    color_gray="\[$(/usr/bin/tput setaf 8)\]"
-    color_off="\[$(/usr/bin/tput sgr0)\]"
+escape() {
+    echo "\[\033[$1\]"
+}
 
-    color_error="$(/usr/bin/tput setab 1)$(/usr/bin/tput setaf 7)"
-    color_error_off="$(/usr/bin/tput sgr0)"
+# Attributes
+c_reset=`escape 0m`     ;
+c_bold_on=`escape 1m`   ;       c_bold_off=`escape 22m`
+c_blink_on=`escape 5m`  ;       c_blink_off=`escape 25m`
+c_reverse_on=`escape 7m`;       c_reverse_off=`escape 27m`
+# Foreground colors
+cf_default=`escape 39m`
+cf_black=`escape 30m`
+cf_red=`escape 31m`
+cf_green=`escape 32m`
+cf_yellow=`escape 33m`
+cf_blue=`escape 34m`
+cf_magenta=`escape 35m`
+cf_cyan=`escape 36m`
+cf_white=`escape 37m`
+cf_gray=`escape 38m`
+# Background colors
+cb_default=`escape 49m`
+cb_black=`escape 40m`
+cb_red=`escape 41m`
+cb_green=`escape 42m`
+cb_yellow=`escape 43m`
+cb_blue=`escape 44m`
+cb_magenta=`escape 45m`
+cb_cyan=`escape 46m`
+cb_white=`escape 47m`
+
+# setup color variables
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    c_is_on=true
+    c_off="\[$(/usr/bin/tput sgr0)\]"
+
+    c_error="$(/usr/bin/tput setab 1)$(/usr/bin/tput setaf 7)"
+    c_error_off="$(/usr/bin/tput sgr0)"
 
     # set user color
     case `id -u` in
-        0) color_user=$color_red ;;
-        *) color_user=$color_green ;;
+        0) c_user=$cf_red ;;
+        *) c_user=$cf_green ;;
     esac
 fi
 
@@ -102,22 +117,22 @@ function prompt_command {
     # build b/w prompt for git
     [[ ! -z $GIT_BRANCH ]] && PS1_GIT=" (git: ${GIT_BRANCH})"
 
-    if $color_is_on; then
+    if $c_is_on; then
         # build git status for prompt
         if [[ ! -z $GIT_BRANCH ]]; then
             if [[ -z $GIT_DIRTY ]]; then
-                PS1_GIT=" (git: ${color_green}${GIT_BRANCH}${color_off})"
+                PS1_GIT=" (git: ${cf_green}${GIT_BRANCH}${c_off})"
             else
-                PS1_GIT=" (git: ${color_red}${GIT_BRANCH}${color_off})"
+                PS1_GIT=" (git: ${cf_red}${GIT_BRANCH}${c_off})"
             fi
         fi
     fi
 
     # set new color prompt
-    PS1="${color_user}\u${color_off}@${color_yellow}\h${color_off}:${color_white} \w${color_off}${PS1_GIT}\n➜ "
+    PS1="${c_user}\u${c_off}@${cf_yellow}\h${c_off}:${cf_white} \w${c_off}${PS1_GIT}\n➜ "
 
     echo -en "\033[6n" && read -sdR CURPOS
-    [[ ${CURPOS##*;} -gt 1 ]] && echo "${color_error}↵${color_error_off}"
+    [[ ${CURPOS##*;} -gt 1 ]] && echo "${c_error}↵${c_error_off}"
 
     # set title
     echo -ne "\033]0;${USER}@${HOSTNAME}:${PWDNAME}"; echo -ne "\007"
