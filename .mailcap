@@ -1,0 +1,4 @@
+application/pdf; okular %s; description="PDF document"
+application/rtf; soffise %s; description="Rich Text Document"
+image/*; gwenview %s; description="Graphical image"
+text/html; firefox %s; description="HTML document"
