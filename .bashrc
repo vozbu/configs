@@ -10,13 +10,19 @@
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]] ; then
-	# Shell is non-interactive.  Be done now!
-	return
+    # Shell is non-interactive.  Be done now!
+    return
 fi
 
 
 # Put your fun stuff here.
-[[ -f /etc/profile.d/bash-completion.sh ]] && source /etc/profile.d/bash-completion.sh
+if [[ -f /etc/profile.d/bash-completion.sh ]]; then
+    source /etc/profile.d/bash-completion.sh
+else
+    for i in `ls /etc/bash_completion.d`; do
+        source /etc/bash_completion.d/$i
+    done
+fi
 
 # don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth,erasedups
@@ -30,6 +36,8 @@ shopt -s cdspell
 
 export PATH="$HOME/bin:$PATH"
 export MAKEFLAGS="-j4"
+export LANG="ru_RU.UTF-8"
+export EDITOR="/usr/bin/vim"
 
 escape() {
     echo "\[\033[$1\]"
