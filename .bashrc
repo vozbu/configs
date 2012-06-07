@@ -92,6 +92,7 @@ function prompt_command {
     local PS1_GIT=
     local GIT_BRANCH=
     local GIT_DIRTY=
+    local GIT_PULL=
     local PWDNAME=$PWD
 
     # beautify working directory name
@@ -117,6 +118,9 @@ function prompt_command {
                     # get git status
                     local GIT_STATUS=$($PS1_GIT_BIN status --porcelain 2>/dev/null)
                     [[ -n $GIT_STATUS ]] && GIT_DIRTY=1
+                    $PS1_GIT_BIN status -sb | grep behind   2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}<<${c_off}"
+                    $PS1_GIT_BIN status -sb | grep ahead    2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}>>${c_off}"
+                    $PS1_GIT_BIN status -sb | grep diverged 2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}<<>>${c_off}"
                 fi
             fi
         fi
@@ -129,9 +133,9 @@ function prompt_command {
         # build git status for prompt
         if [[ ! -z $GIT_BRANCH ]]; then
             if [[ -z $GIT_DIRTY ]]; then
-                PS1_GIT=" (git: ${cf_green}${GIT_BRANCH}${c_off})"
+                PS1_GIT=" (git: ${cf_green}${GIT_BRANCH}${c_off}${GIT_PULL})"
             else
-                PS1_GIT=" (git: ${cf_red}${GIT_BRANCH}${c_off})"
+                PS1_GIT=" (git: ${cf_red}${GIT_BRANCH}${c_off}${GIT_PULL})"
             fi
         fi
     fi
