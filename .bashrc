@@ -118,9 +118,9 @@ function prompt_command {
                     # get git status
                     local GIT_STATUS=$($PS1_GIT_BIN status --porcelain 2>/dev/null)
                     [[ -n $GIT_STATUS ]] && GIT_DIRTY=1
-                    $PS1_GIT_BIN status -sb | grep behind   2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}<<${c_off}"
-                    $PS1_GIT_BIN status -sb | grep ahead    2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}>>${c_off}"
-                    $PS1_GIT_BIN status -sb | grep diverged 2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}<<>>${c_off}"
+                    $PS1_GIT_BIN status -sb | grep behind           2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}<<${c_off}"
+                    $PS1_GIT_BIN status -sb | grep ahead            2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}>>${c_off}"
+                    $PS1_GIT_BIN status -sb | egrep "ahead.+behind" 2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}<<>>${c_off}"
                 fi
             fi
         fi
