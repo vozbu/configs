@@ -14,18 +14,23 @@ set foldmethod=syntax                   " клавиши zc, zo, zr
 set mouse=a                             " включить мышь везде, где только можно
 set list                                " включить отображение непечатных символов на экране
 set listchars=tab:>.,trail:.            " отображать табы и пробелы в конце строки
-set path=.,/usr/include,,~/programming/*/include " путь для удобного открытия инклюдов по gf
+set path=.,/usr/include,/usr/local/include,,~/programming/target/include,~/programming/target/include/serverlib,/usr/local/mpop/include " путь для удобного открытия инклюдов по gf
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
+let c_no_curly_error=1                  " запрещаем подсветку {} внутри () как ошибку (для c++0x)
 
 if has('gui_running')
-    set guifont=Terminus\ 14
+    set guifont=Terminus\ 10
 endif
 
 " insert date
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 map  :w!<CR>:!aspell check %<CR>:e! %<CR>
+
+" чтобы не сохранять в конце файла перевод строки
+" set binary
+" set noeol
 
 " поиск выделения по *
 vnoremap <silent> * :call VisualSearch('f')<CR>

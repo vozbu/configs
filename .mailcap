@@ -1,4 +1,6 @@
+application/msword; soffice %s; description="Microsoft document"
 application/pdf; okular %s; description="PDF document"
-application/rtf; soffise %s; description="Rich Text Document"
+application/rtf; soffice %s; description="Rich Text Document"
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; soffice %s; description="Word Document"
 image/*; gwenview %s; description="Graphical image"
 text/html; firefox %s; description="HTML document"
