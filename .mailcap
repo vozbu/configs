@@ -1,4 +1,5 @@
 application/msword; soffice %s; description="Microsoft document"
+application/pdf; pdftotext -layout %s /dev/stdout; copiousoutput
 application/pdf; okular %s; description="PDF document"
 application/rtf; soffice %s; description="Rich Text Document"
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; soffice %s; description="Word Document"
