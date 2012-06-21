@@ -1,0 +1,29 @@
+# Colors Managing Mail
+color normal white default
+color bold brightwhite default
+color markers magenta default
+color status cyan default
+color indicator brightgreen blue
+color tree green default
+color error brightred default
+
+# Colors for items in the index
+color index cyan default ~N
+color index blue default ~D
+color index magenta default ~T
+
+# Default Colors Reader
+color hdrdefault green default
+color message white default
+color quoted cyan default
+color quoted1   green           default                         # quoted text 2nd level
+color quoted2   magenta         default                         # quoted text 3rd level
+color quoted3   yellow          default
+color signature green default
+color attachment yellow default
+color search brightwhite default
+color tilde cyan default
+
+# Aditional Colors Header
+color header brightwhite default "^(From|Subject):"
+color header blue default "^X-Spammer:"
