@@ -3,11 +3,13 @@
 #
 
 # mail
-set mail_check = 600
+set mail_check = 10
 set imap_check_subscribed
 unset imap_passive
-set imap_keepalive = 60
+set imap_keepalive = 10
 set auto_tag = yes
+set timeout = 10
+#set imap_pipeline_depth = 0
 
 # files
 set header_cache = ~/.mutt/cache/headers
