@@ -143,8 +143,9 @@ function prompt_command {
     # set new color prompt
     PS1="${c_bold_on}${c_user}\u${cf_white}@${cf_yellow}\h${cf_blue} \w${c_off}${PS1_GIT}\n> "
 
-    echo -en "\033[6n" && read -sdR CURPOS
-    [[ ${CURPOS##*;} -gt 1 ]] && echo "${c_error}↵${c_error_off}"
+# eats command which is typed while terminal was thinking :(
+#    echo -en "\033[6n" && read -sdR CURPOS
+#    [[ ${CURPOS##*;} -gt 1 ]] && echo "${c_error}↵${c_error_off}"
 
     # set title
     echo -ne "\033]0;${USER}@${HOSTNAME}:${PWDNAME}"; echo -ne "\007"
