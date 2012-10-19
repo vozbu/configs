@@ -1,4 +1,6 @@
 set hlsearch
+set newtab="all"
+execute "source ~/.vimperator/user_scripts/sslstatus.js"
 
 " маппим русские буквы в английские для управления
 map ё `
