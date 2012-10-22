@@ -19,6 +19,11 @@ autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные про
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
 let c_no_curly_error=1                  " запрещаем подсветку {} внутри () как ошибку (для c++0x)
 
+" fix for using in the screen
+if match($TERM, "screen")!=-1
+  set term=xterm
+endif
+
 if has('gui_running')
     set guifont=Terminus\ 10
 endif
@@ -62,6 +67,10 @@ function! CmdLine(str)
    emenu Foo.Bar
    unmenu Foo
 endfunction
+
+" ctags
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " маппим русские буквы в английские для управления
 map ё `
