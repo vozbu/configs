@@ -3,6 +3,7 @@ application/pdf; okular %s; description="PDF document"
 application/pdf; pdftotext -layout %s /dev/stdout; copiousoutput
 application/rtf; soffice %s; description="Rich Text Document"
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; soffice %s; description="Word Document"
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; soffice %s; description="Excel Document"
 image/*; gwenview %s; description="Graphical image"
 text/html; firefox %s; description="HTML document"
 text/html; lynx -dump %s --assume_charset=utf8; nametemplate=%s.html; copiousoutput; description="HTML document"
