@@ -45,15 +45,6 @@ hdr_order from to cc date subject x-mailer user-agent
 alternative_order text/plain
 auto_view text/html
 
-# sidebar
-set sidebar_width       = 20
-set sidebar_visible     = yes
-color sidebar_new yellow default
-
-bind index <left> sidebar-prev
-bind index <right> sidebar-next
-bind index <space> sidebar-open
-
 # hooks
 
 # keys
