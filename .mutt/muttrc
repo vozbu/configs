@@ -43,7 +43,7 @@ unignore  from to cc date subject x-mailer user-agent x-url
 hdr_order from to cc date subject x-mailer user-agent
 
 alternative_order text/plain
-auto_view text/html
+auto_view text/html text/calendar
 
 # hooks
 
