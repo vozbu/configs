@@ -3,5 +3,6 @@
 *.o
 *.so
 *.swp
+tags
 
 *build*/
