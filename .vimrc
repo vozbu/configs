@@ -15,8 +15,8 @@ set mouse=a                             " включить мышь везде, 
 set list                                " включить отображение непечатных символов на экране
 set listchars=tab:>.,trail:.            " отображать табы и пробелы в конце строки
 " пути для удобного открытия инклюдов по gf
-set path=.,/usr/include,/usr/local/**/include,,/usr/lib/gcc/x86_64-pc-linux-gnu/4.7.2/include/**
-set path+=~/programming/target/include/**
+set path=.,include/**;/home/vozbu/programming
+set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/4.7.2/include/**
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
 let c_no_curly_error=1                  " запрещаем подсветку {} внутри () как ошибку (для c++0x)
