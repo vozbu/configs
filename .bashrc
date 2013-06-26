@@ -18,7 +18,7 @@ fi
 # Put your fun stuff here.
 if [[ -f /etc/profile.d/bash-completion.sh ]]; then
     source /etc/profile.d/bash-completion.sh
-else
+elif [[ -d /etc/bash_completion.d ]]; then
     for i in `ls /etc/bash_completion.d`; do
         source /etc/bash_completion.d/$i
     done
@@ -38,6 +38,17 @@ export PATH="$HOME/bin:$PATH"
 export MAKEFLAGS="-j4"
 export LANG="ru_RU.UTF-8"
 export EDITOR="/usr/bin/vim"
+
+if [[ `uname` == 'Darwin' ]]; then
+    if which brew > /dev/null; then
+        if [ -f $(brew --prefix)/etc/bash_completion ]; then
+            . $(brew --prefix)/etc/bash_completion
+        fi
+    fi
+
+    alias grep='grep --color=auto'
+    alias ls='ls -G'
+fi
 
 escape() {
     echo "\[\033[$1\]"
