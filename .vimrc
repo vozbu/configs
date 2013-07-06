@@ -2,12 +2,13 @@ set bg=dark
 " colorscheme manxome
 colorscheme wombat256
 let leave_my_textwidth_alone='yes'      " убираем автоматический перенос строк в текстовых файлах (Gentoo-specific)
-syntax on
+syntax on                               " включаем подсветку синтаксиса
 set softtabstop=4 shiftwidth=4 expandtab
 set cindent                             " отступы в стиле Си
 set autoread
 set autowrite                           " сохранить файл перед выполнением команды
 set number                              " вывод номеров строк
+set ruler                               " показывать текущую строку и столбец справа снизу
 set is                                  " incremental search
 set fencs=ucs-bom,utf-8,default,cp1251  " fileencodings: list of char-encs considered when starting to edit an existing file"
 set foldenable                          " сворачивание функций и т.п.
