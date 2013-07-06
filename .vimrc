@@ -2,6 +2,7 @@ set bg=dark
 " colorscheme manxome
 colorscheme wombat256
 let leave_my_textwidth_alone='yes'      " убираем автоматический перенос строк в текстовых файлах (Gentoo-specific)
+syntax on
 set softtabstop=4 shiftwidth=4 expandtab
 set cindent                             " отступы в стиле Си
 set autoread
