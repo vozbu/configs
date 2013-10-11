@@ -10,6 +10,7 @@ set autowrite                           " сохранить файл перед
 set number                              " вывод номеров строк
 set ruler                               " показывать текущую строку и столбец справа снизу
 set is                                  " incremental search
+set hlsearch                            " highlight search
 set fencs=ucs-bom,utf-8,default,cp1251  " fileencodings: list of char-encs considered when starting to edit an existing file"
 set foldenable                          " сворачивание функций и т.п.
 set foldmethod=syntax                   " клавиши zc, zo, zr
