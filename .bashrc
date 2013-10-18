@@ -35,7 +35,7 @@ shopt -s cmdhist
 shopt -s cdspell
 
 export PATH="$HOME/bin:$PATH"
-export MAKEFLAGS="-j4"
+export MAKEFLAGS="-j `nproc`"
 export LANG="ru_RU.UTF-8"
 export EDITOR="/usr/bin/vim"
 
