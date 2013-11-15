@@ -1,5 +1,7 @@
 $include /etc/inputrc
 
 set completion-ignore-case on
+set skip-completed-text on
+#set editing-mode vi
 "\e[5~": history-search-backward
 "\e[6~": history-search-forward
