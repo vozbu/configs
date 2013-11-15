@@ -1,0 +1,20 @@
+[color]
+    ui = auto
+[diff]
+    renamelimit = 0
+    tool = kdiff3
+[difftool]
+    prompt = false
+[merge]
+    conflictstyle = diff3
+[pack]
+    threads = 4
+[user]
+    name = Valeriy Bykov
+    email = valery.bickov@gmail.com
+[core]
+#    autocrlf = input
+    excludesfile = /home/vozbu/.gitignore_global
+    quotepath = false
+[push]
+    default = current
