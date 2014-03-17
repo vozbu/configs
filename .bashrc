@@ -50,6 +50,8 @@ if [[ `uname` == 'Darwin' ]]; then
     alias ls='ls -G'
 fi
 
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+
 escape() {
     echo "\[\033[$1\]"
 }
