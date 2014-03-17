@@ -17,7 +17,9 @@ set foldmethod=syntax                   " клавиши zc, zo, zr
 set mouse=a                             " включить мышь везде, где только можно
 set list                                " включить отображение непечатных символов на экране
 set listchars=tab:>.,trail:.            " отображать табы и пробелы в конце строки
+set complete=.,w,b,u,t                  " автодополнять без поиска по включенным файлам
 " пути для удобного открытия инклюдов по gf
+" set path=.,,**/include/**;/home/vozbu/programming
 set path=.,include/**;/home/vozbu/programming
 set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/include/**
 autocmd BufNewFile,BufRead *.cpp set syntax=cpp11   " поддержка синтаксиса C++11 в .cpp-файлах
