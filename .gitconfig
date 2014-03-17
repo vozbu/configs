@@ -18,3 +18,6 @@
     quotepath = false
 [push]
     default = current
+[gui]
+	fontui = -family \"Liberation Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Liberation Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
