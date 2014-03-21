@@ -22,7 +22,8 @@ set complete=.,w,b,u,t                  " автодополнять без по
 " set path=.,,**/include/**;/home/vozbu/programming
 set path=.,include/**;/home/vozbu/programming
 set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/include/**
-autocmd BufNewFile,BufRead *.cpp set syntax=cpp11   " поддержка синтаксиса C++11 в .cpp-файлах
+" autocmd BufNewFile,BufRead *.cpp set syntax=cpp11   " поддержка синтаксиса C++11 в .cpp-файлах
+autocmd BufNewFile,BufRead *.cpp set syntax=cpp   " поддержка синтаксиса C++11 в .cpp-файлах
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
 let c_no_curly_error=1                  " запрещаем подсветку {} внутри () как ошибку (для c++0x)
