@@ -43,6 +43,10 @@ if [[ `uname` == 'Darwin' ]]; then
     if which brew > /dev/null; then
         if [ -f $(brew --prefix)/etc/bash_completion ]; then
             . $(brew --prefix)/etc/bash_completion
+        elif [[ -d $(brew --prefix)/etc/bash_completion.d ]]; then
+            for i in `ls $(brew --prefix)/etc/bash_completion.d`; do
+                source $(brew --prefix)/etc/bash_completion.d/$i
+            done
         fi
     fi
 
