@@ -36,8 +36,10 @@ shopt -s cdspell
 
 export PATH="$HOME/bin:$PATH"
 export MAKEFLAGS="-j `nproc`"
-export LANG="ru_RU.UTF-8"
+export CCACHE_COMPRESS=1
+#export LANG="ru_RU.UTF-8"
 export EDITOR="/usr/bin/vim"
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 if [[ `uname` == 'Darwin' ]]; then
     if which brew > /dev/null; then
