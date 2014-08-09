@@ -1,0 +1,102 @@
+alignment bottom_right
+background yes
+border_width 1
+color1 orange
+color2 cyan
+color3 brown
+color4 grey
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+default_bar_size 0 4
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+double_buffer yes
+gap_x 5
+gap_y 90
+minimum_size 5 5
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+own_window yes
+own_window_argb_visual yes
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+own_window_type normal
+show_graph_scale no
+show_graph_range no
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer right
+use_xft yes
+xftfont Terminus:size=10
+
+TEXT
+${color1}Kernel$color $kernel
+${color1}Uptime$color $uptime
+${color1}Processing$color
+ ${color2}CPU
+  ${color3}Total$color ${cpu cpu0}% ${cpubar cpu0}
+  ${color4}Core1 ${cpu cpu1}% ${cpubar cpu1}
+  ${color4}Core2 ${cpu cpu2}% ${cpubar cpu2}
+  ${color4}Core3 ${cpu cpu3}% ${cpubar cpu3}
+  ${color4}Core4 ${cpu cpu4}% ${cpubar cpu4}
+  ${color2}Freq$color ${freq_g 1} ${freq_g 2} ${freq_g 3} ${freq_g 4}
+  ${color2}Load avg$color $loadavg
+ ${color2}RAM$color $memperc% ${membar}
+ ${color2}Cached$color $cached${if_mounted ladjfla}
+ ${color2}Swap$color $swapperc% ${swapbar}$endif
+$stippled_hr
+${color1}Temperatures
+ ${color2}HDD$color ${hddtemp /dev/sda} ${hddtemp /dev/sdb}
+ ${color2}CPU$color ( ${platform coretemp.0 temp 1}) ${platform coretemp.0 temp 2} ${platform coretemp.0 temp 3} ${platform coretemp.0 temp 4} ${platform coretemp.0 temp 5}
+$stippled_hr
+${color1}Fans
+ ${color2}CPU$color ${hwmon 1 fan 2}
+ ${color2}Chassis$color ${hwmon 1 fan 3}
+ ${color2}Chassis$color ${hwmon 1 fan 1}
+$stippled_hr
+${color1}Disk IO$color
+ ${color2}Read                 Write$color
+ ${color3}sda$color ${diskio_read sda}          ${color3}sda$color ${diskio_write sda}
+ ${diskiograph_read sda 20,140}${alignr}${diskiograph_write sda 20,140}
+ ${color3}sdb$color ${diskio_read sdb}          ${color3}sdb$color ${diskio_write sdb}
+ ${diskiograph_read sdb 20,140}${alignr}${diskiograph_write sdb 20,140}${if_mounted /dev/sdc}
+ ${color3}sdc$color ${diskio_read sdc}          ${color3}sdc$color ${diskio_write sdc}
+ ${diskiograph_read sdc 20,140}${alignr}${diskiograph_write sdc 20,140}$endif${if_mounted /dev/sdd}
+ ${color3}sdd$color ${diskio_read sdd}          ${color3}sdd$color ${diskio_write sdd}
+ ${diskiograph_read sdd 20,140}${alignr}${diskiograph_write sdd 20,140}$endif${if_existing /dev/sdg}
+ ${color3}sdg$color ${diskio_read sdg}          ${color3}sdg$color ${diskio_write sdg}
+ ${diskiograph_read sdg 20,140}${alignr}${diskiograph_write sdg 20,140}$endif${if_existing /dev/sdh}
+ ${color3}sdh$color ${diskio_read sdh}          ${color3}sdh$color ${diskio_write sdh}
+ ${diskiograph_read sdh 20,140}${alignr}${diskiograph_write sdh 20,140}$endif${if_existing /dev/sdi}
+ ${color3}sdi$color ${diskio_read sdi}          ${color3}sdi$color ${diskio_write sdi}
+ ${diskiograph_read sdi 20,140}${alignr}${diskiograph_write sdi 20,140}$endif
+$stippled_hr
+${color1}Filesystems$color
+ ${color2}/$color ${alignr}${fs_free /} ${fs_bar 4,140 /}${if_mounted /boot}
+ ${color2}/boot$color ${alignr}${fs_free /boot} ${fs_bar 4,140 /boot}$endif
+ ${color2}/home$color ${alignr}${fs_free /home} ${fs_bar 4,140 /home}${if_mounted /home/vozbu/programming}
+ ${color2}prg$color ${alignr}${fs_free /home/vozbu/programming} ${fs_bar 4,140 /home}$endif
+ ${color2}/mnt/media$color ${alignr}${fs_free /mnt/media} ${fs_bar 4,140 /mnt/media}
+ ${color2}/mnt/pmedia$color ${alignr}${fs_free /mnt/pmedia} ${fs_bar 4,140 /mnt/pmedia}
+ ${color2}/mnt/hdd$color ${alignr}${fs_free /mnt/hdd} ${fs_bar 4,140 /mnt/hdd}${if_mounted /mnt/backups}
+ ${color2}/mnt/backups$color ${alignr}${fs_free /mnt/backups} ${fs_bar 4,140 /mnt/backups}$endif${if_mounted /mnt/sd-mmc}
+ ${color2}/mnt/sd-mmc$color ${alignr}${fs_free /mnt/sd-mmc} ${fs_bar 4,140 /mnt/sd-mmc}$endif${if_mounted /mnt/flash}
+ ${color2}/mnt/flash$color ${alignr}${fs_free /mnt/flash} ${fs_bar 4,140 /mnt/flash}$endif
+$stippled_hr
+${color1}Networking
+ ${color2}Down                 Up
+ ${color3}eth0$color  ${downspeed eth0}        ${color3}eth0$color  ${upspeed eth0}
+       ${totaldown eth0}              ${totalup eth0}
+ ${downspeedgraph eth0 20,140} ${alignr}${upspeedgraph eth0 20,140}
+ Address: ${addr eth0} ($nodename})
+${if_up ppp0}
+ ${color3}ppp0$color  ${downspeed ppp0}        ${color3}ppp0$color  ${upspeed ppp0}
+       ${totaldown ppp0}              ${totalup ppp0}
+ ${downspeedgraph ppp0 20,140} ${alignr}${upspeedgraph ppp0 20,140}
+ Address: ${addr ppp0}$endif
