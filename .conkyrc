@@ -53,7 +53,7 @@ ${color1}Processing$color
 $stippled_hr
 ${color1}Temperatures
  ${color2}HDD$color ${hddtemp /dev/sda} ${hddtemp /dev/sdb}
- ${color2}CPU$color ( ${platform coretemp.0 temp 1}) ${platform coretemp.0 temp 2} ${platform coretemp.0 temp 3} ${platform coretemp.0 temp 4} ${platform coretemp.0 temp 5}
+ ${color2}CPU$color ( ${hwmon 0 temp 1}) ${hwmon 0 temp 2} ${hwmon 0 temp 3} ${hwmon 0 temp 4} ${hwmon 0 temp 5}
 $stippled_hr
 ${color1}Fans
  ${color2}CPU$color ${hwmon 1 fan 2}
@@ -85,18 +85,16 @@ ${color1}Filesystems$color
  ${color2}/mnt/media$color ${alignr}${fs_free /mnt/media} ${fs_bar 4,140 /mnt/media}
  ${color2}/mnt/pmedia$color ${alignr}${fs_free /mnt/pmedia} ${fs_bar 4,140 /mnt/pmedia}
  ${color2}/mnt/hdd$color ${alignr}${fs_free /mnt/hdd} ${fs_bar 4,140 /mnt/hdd}${if_mounted /mnt/backups}
- ${color2}/mnt/backups$color ${alignr}${fs_free /mnt/backups} ${fs_bar 4,140 /mnt/backups}$endif${if_mounted /mnt/sd-mmc}
- ${color2}/mnt/sd-mmc$color ${alignr}${fs_free /mnt/sd-mmc} ${fs_bar 4,140 /mnt/sd-mmc}$endif${if_mounted /mnt/flash}
- ${color2}/mnt/flash$color ${alignr}${fs_free /mnt/flash} ${fs_bar 4,140 /mnt/flash}$endif
+ ${color2}/mnt/backups$color ${alignr}${fs_free /mnt/backups} ${fs_bar 4,140 /mnt/backups}$endif
 $stippled_hr
 ${color1}Networking
  ${color2}Down                 Up
  ${color3}eth0$color  ${downspeed eth0}        ${color3}eth0$color  ${upspeed eth0}
        ${totaldown eth0}              ${totalup eth0}
  ${downspeedgraph eth0 20,140} ${alignr}${upspeedgraph eth0 20,140}
- Address: ${addr eth0} ($nodename})
+ Address: ${addrs eth0} ($nodename})
 ${if_up ppp0}
  ${color3}ppp0$color  ${downspeed ppp0}        ${color3}ppp0$color  ${upspeed ppp0}
        ${totaldown ppp0}              ${totalup ppp0}
  ${downspeedgraph ppp0 20,140} ${alignr}${upspeedgraph ppp0 20,140}
- Address: ${addr ppp0}$endif
+ Address: ${addrs ppp0}$endif
