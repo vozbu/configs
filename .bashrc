@@ -52,8 +52,14 @@ if [[ `uname` == 'Darwin' ]]; then
         fi
     fi
 
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
     alias grep='grep --color=auto'
-    alias ls='ls -G'
+    # for native MacOS ls
+    #alias ls='ls -G'
+    # for brew coreutil
+    alias ls='ls --color=auto'
 fi
 
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
