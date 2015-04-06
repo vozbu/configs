@@ -10,6 +10,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'occur.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
