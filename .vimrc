@@ -1,3 +1,8 @@
+let os = ""
+if has("unix")
+  let os = substitute(system('uname'), "\n", "", "")
+endif
+
 " Vundle options
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -12,6 +17,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'occur.vim'
 Plugin 'tpope/vim-fugitive'
+
+if os == "Linux"
+  Plugin 'Valloric/YouCompleteMe'
+  Plugin 'rdnetto/YCM-Generator'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
