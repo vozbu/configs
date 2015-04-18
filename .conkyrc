@@ -16,7 +16,7 @@ draw_outline no
 draw_shades no
 double_buffer yes
 gap_x 5
-gap_y 90
+gap_y 200
 minimum_size 5 5
 net_avg_samples 2
 no_buffers yes
