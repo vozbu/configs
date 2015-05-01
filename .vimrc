@@ -17,6 +17,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'occur.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdcommenter'
 
 if os == "Linux"
   Plugin 'Valloric/YouCompleteMe'
