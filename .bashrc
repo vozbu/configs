@@ -37,6 +37,7 @@ shopt -s cdspell
 export PATH="$HOME/bin:$PATH"
 export MAKEFLAGS="-j `nproc`"
 export CCACHE_COMPRESS=1
+export CCACHE_SLOPPINESS=pch_defines,time_macros
 #export LANG="ru_RU.UTF-8"
 export EDITOR="/usr/bin/vim"
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
