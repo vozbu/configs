@@ -56,6 +56,7 @@ if [[ `uname` == 'Darwin' ]]; then
     export PATH="/usr/local/sbin:$PATH"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+    export MANPATH="/usr/local/Cellar/gcc/5.1.0/share/man:$MANPATH"
 
     alias grep='grep --color=auto'
     # for native MacOS ls
