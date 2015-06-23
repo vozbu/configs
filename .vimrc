@@ -24,6 +24,10 @@ if os == "Linux"
   Plugin 'rdnetto/YCM-Generator'
 endif
 
+if os == "Darwin"
+    Plugin 'uarun/vim-protobuf'
+endif
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
