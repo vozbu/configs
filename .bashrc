@@ -63,6 +63,8 @@ if [[ `uname` == 'Darwin' ]]; then
     #alias ls='ls -G'
     # for brew coreutil
     alias ls='ls --color=auto'
+
+    which boot2docker > /dev/null && eval "$(boot2docker shellinit 2>/dev/null)"
 fi
 
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
