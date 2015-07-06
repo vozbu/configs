@@ -35,7 +35,6 @@ shopt -s cmdhist
 shopt -s cdspell
 
 export PATH="$HOME/bin:$PATH"
-export MAKEFLAGS="-j `nproc`"
 export CCACHE_COMPRESS=1
 export CCACHE_SLOPPINESS=pch_defines,time_macros
 #export LANG="ru_RU.UTF-8"
@@ -55,6 +54,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     export PATH="/usr/local/sbin:$PATH"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
     export MANPATH="/usr/local/Cellar/gcc/5.1.0/share/man:$MANPATH"
 
@@ -67,7 +67,8 @@ if [[ `uname` == 'Darwin' ]]; then
     which boot2docker > /dev/null && eval "$(boot2docker shellinit 2>/dev/null)"
 fi
 
-export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+# using nproc after correct PATH setting
+export MAKEFLAGS="-j `nproc`"
 
 escape() {
     echo "\[\033[$1\]"
