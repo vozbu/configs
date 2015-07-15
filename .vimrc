@@ -18,6 +18,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'occur.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'fatih/vim-go'
+Plugin 'vim-jp/vim-go-extra'
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 if os == "Linux"
   Plugin 'Valloric/YouCompleteMe'
