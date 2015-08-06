@@ -128,6 +128,7 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set statusline=%{fugitive#statusline()}
 
 if os == "Linux"
+  let g:ycm_confirm_extra_conf = 1
   " C++ navigation
   let g:ctrlk_clang_library_path="/usr/lib"
   nmap <F2>  :call GetCtrlKState()<CR>
