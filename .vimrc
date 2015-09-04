@@ -22,12 +22,6 @@ Plugin 'fatih/vim-go'
 Plugin 'vim-jp/vim-go-extra'
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
-if os == "Linux"
-  Plugin 'L9'
-  Plugin 'FuzzyFinder'
-  Plugin 'SkidanovAlex/CtrlK'
-endif
-
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
     Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
@@ -124,20 +118,6 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Git integration
 set statusline=%{fugitive#statusline()}
-
-if os == "Linux"
-  " C++ navigation
-  let g:ctrlk_clang_library_path="/usr/lib"
-  nmap <F2>  :call GetCtrlKState()<CR>
-  nmap <F3>  :call CtrlKGoToDefinition()<CR>
-  nmap <F4>  :call CtrlKGetReferences()<CR>
-  nmap <C-k> :call CtrlKNavigateSymbols()<CR>
-  hi User1 ctermbg=darkgreen ctermfg=black guibg=darkgreen guifg=black
-  hi User2 ctermbg=gray ctermfg=black guibg=gray  guifg=black
-  hi User3 ctermbg=darkgray ctermfg=gray  guibg=darkgray  guifg=gray
-  set statusline=%{fugitive#statusline()}\ %1*\ %{CtrlKGetCurrentScope()}\ %2*\ %F%m%r%h\ %w\ \ %3*\ %r%{getcwd()}%h%=%l:%c
-  set laststatus=2
-endif
 
 " маппим русские буквы в английские для управления
 map ё `
