@@ -119,6 +119,7 @@ nmap <F9> :TagbarToggle<CR>
 
 " Git integration
 set statusline=%{fugitive#statusline()}
+set laststatus=2
 
 " маппим русские буквы в английские для управления
 map ё `
