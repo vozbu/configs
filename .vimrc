@@ -20,6 +20,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
 Plugin 'vim-jp/vim-go-extra'
+Plugin 'majutsushi/tagbar'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
@@ -114,6 +115,7 @@ endfunction
 " ctags
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nmap <F9> :TagbarToggle<CR>
 
 " Git integration
 set statusline=%{fugitive#statusline()}
