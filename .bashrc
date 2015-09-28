@@ -181,7 +181,14 @@ function prompt_command {
 #    [[ ${CURPOS##*;} -gt 1 ]] && echo "${c_error}↵${c_error_off}"
 
     # set title
-    echo -ne "\033]0;${USER}@${HOSTNAME}:${PWDNAME}"; echo -ne "\007"
+    case "$TERM" in
+        screen)
+            echo -ne "\033k$HOSTNAME\033\\"
+            ;;
+        default)
+            echo -ne "\033]0;${USER}@${HOSTNAME}:${PWDNAME}"; echo -ne "\007"
+            ;;
+    esac
 }
 
 # set prompt command (title update and color prompt)
