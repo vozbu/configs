@@ -185,7 +185,7 @@ function prompt_command {
         screen)
             echo -ne "\033k$HOSTNAME\033\\"
             ;;
-        default)
+        *)
             echo -ne "\033]0;${USER}@${HOSTNAME}:${PWDNAME}"; echo -ne "\007"
             ;;
     esac
