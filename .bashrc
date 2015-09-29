@@ -182,7 +182,7 @@ function prompt_command {
 
     # set title
     case "$TERM" in
-        screen)
+        screen*)
             echo -ne "\033k$HOSTNAME\033\\"
             ;;
         *)
