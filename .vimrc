@@ -65,7 +65,7 @@ set switchbuf+=usetab,newtab            " quickfix открывает новую
 
 " fix for using in the screen
 if match($TERM, "screen")!=-1
-  set term=xterm
+  set term=xterm-256color
 endif
 
 if has('gui_running')
