@@ -63,6 +63,7 @@ if [[ `uname` == 'Darwin' ]]; then
     #alias ls='ls -G'
     # for brew coreutil
     alias ls='ls --color=auto'
+    alias ldd='otool -L'
 
     which boot2docker > /dev/null && eval "$(boot2docker shellinit 2>/dev/null)"
 fi
