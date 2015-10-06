@@ -16,6 +16,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'occur.vim'
+Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
@@ -118,8 +119,14 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 nmap <F9> :TagbarToggle<CR>
 
 " Git integration
-set statusline=%{fugitive#statusline()}
+"set statusline=%{fugitive#statusline()}
+" set statusline=[%n]\ %<%.99f\"%h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\"%l,%c-%v\ %)%P
 set laststatus=2
+
+" Airline
+"let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+"let g:airline_theme='solarized'
 
 " маппим русские буквы в английские для управления
 map ё `
