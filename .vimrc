@@ -78,7 +78,11 @@ if match($TERM, "screen")!=-1
 endif
 
 if has('gui_running')
-    set guifont=Terminus\ 10
+    if os == "Darwin"
+        set guifont=Meslo\ LG\ M\ for\ Powerline:h14
+    else
+        set guifont=Terminus\ 10
+    endif
 endif
 
 " insert date
