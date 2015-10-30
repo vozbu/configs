@@ -90,6 +90,12 @@ nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 map  :w!<CR>:!aspell check %<CR>:e! %<CR>
 
+if os == "Darwin"
+    " copy to system clipboard
+    nmap <F2> :.w !pbcopy<CR><CR>
+    vmap <F2> :w !pbcopy<CR><CR>
+endif
+
 " чтобы не сохранять в конце файла перевод строки
 " set binary
 " set noeol
