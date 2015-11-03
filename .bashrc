@@ -172,10 +172,8 @@ function prompt_command {
         fi
     fi
 
-    DATE=`date +%H:%M`
-
     # set new color prompt
-    PS1="${cb_blue}${cf_white}${DATE}${cb_default} ${c_bold_on}${c_user}\u${cf_white}@${cf_yellow}\h${cf_blue} \w${c_off}${PS1_GIT}\n> "
+    PS1="${cb_blue}${cf_white}\t${cb_default} ${c_bold_on}${c_user}\u${cf_white}@${cf_yellow}\h${cf_blue} \w${c_off}${PS1_GIT}\n> "
 
 # eats command which is typed while terminal was thinking :(
 #    echo -en "\033[6n" && read -sdR CURPOS
