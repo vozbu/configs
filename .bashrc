@@ -68,6 +68,8 @@ if [[ `uname` == 'Darwin' ]]; then
     which boot2docker > /dev/null && eval "$(boot2docker shellinit 2>/dev/null)"
 fi
 
+alias rejson='python -m json.tool'
+
 # using nproc after correct PATH setting
 export MAKEFLAGS="-j `nproc`"
 
