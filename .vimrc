@@ -136,6 +136,10 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 nmap <F9> :TagbarToggle<CR>
 
+" Clang Format
+map <C-K> :!clang-format -style=WebKit<CR>
+imap <C-K> <c-o>:!clang-format -style=WebKit<CR>
+
 " Git integration
 "set statusline=%{fugitive#statusline()}
 " set statusline=[%n]\ %<%.99f\"%h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\"%l,%c-%v\ %)%P
