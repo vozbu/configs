@@ -122,6 +122,11 @@ fi
 # some kind of optimization - check if git installed only on config load
 PS1_GIT_BIN=$(which git 2>/dev/null)
 
+jobscount() {
+    local stopped=$(jobs -sp | wc -l)
+    local running=$(jobs -rp | wc -l)
+    ((running+stopped)) && echo -n "${cf_yellow}jobs ${running}r/${stopped}s${c_off} "
+}
 function prompt_command {
     local PS1_GIT=
     local GIT_BRANCH=
@@ -175,7 +180,7 @@ function prompt_command {
     fi
 
     # set new color prompt
-    PS1="${cb_blue}${cf_white}\t${cb_default} ${c_bold_on}${c_user}\u${cf_white}@${cf_yellow}\h${cf_blue} \w${c_off}${PS1_GIT}\n> "
+    PS1="${cb_blue}${cf_white}\t${cb_default} $(jobscount)${c_bold_on}${c_user}\u${cf_white}@${cf_yellow}\h${cf_blue} \w${c_off}${PS1_GIT}\n> "
 
 # eats command which is typed while terminal was thinking :(
 #    echo -en "\033[6n" && read -sdR CURPOS
