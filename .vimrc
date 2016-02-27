@@ -22,6 +22,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
 Plugin 'vim-jp/vim-go-extra'
 Plugin 'majutsushi/tagbar'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
