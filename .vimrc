@@ -26,7 +26,6 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
-    Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 endif
 
 " All of your Plugins must be added before the following line
