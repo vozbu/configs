@@ -23,6 +23,8 @@ Plugin 'fatih/vim-go'
 Plugin 'vim-jp/vim-go-extra'
 Plugin 'majutsushi/tagbar'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'rking/ag.vim'
+Plugin 'easymotion/vim-easymotion'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
@@ -148,7 +150,15 @@ set laststatus=2
 " Airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=0
 "let g:airline_theme='solarized'
+
+" EasyMotion
+map <Leader>s <Plug>(easymotion-s)
+map <Leader>w <Plug>(easymotion-w)
+map <Leader>e <Plug>(easymotion-e)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " маппим русские буквы в английские для управления
 map ё `
