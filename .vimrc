@@ -25,6 +25,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rking/ag.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'editorconfig/editorconfig-vim'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
