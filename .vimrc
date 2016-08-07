@@ -141,6 +141,7 @@ nmap <F9> :TagbarToggle<CR>
 " Clang Format
 map <C-K> :!clang-format -style=WebKit<CR>
 imap <C-K> <c-o>:!clang-format -style=WebKit<CR>
+vmap <C-K> <c-o>:!clang-format -style=WebKit<CR>
 
 " Git integration
 "set statusline=%{fugitive#statusline()}
