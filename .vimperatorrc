@@ -2,6 +2,9 @@ set hlsearch
 set newtab="all"
 execute "source ~/.vimperator/user_scripts/sslstatus.js"
 
+autocmd LocationChange .*                                       js modes.passAllKeys = false
+autocmd LocationChange hive1\\.trghive\\.corp\\.mail\\.ru:443   js modes.passAllKeys = true
+
 " маппим русские буквы в английские для управления
 map ё `
 map й q
