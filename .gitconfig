@@ -7,6 +7,7 @@
     prompt = false
 [merge]
     conflictstyle = diff3
+    ff = false
 [pack]
     threads = 4
 [user]
@@ -23,3 +24,5 @@
     fontdiff = -family \"Liberation Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [help]
     autocorrect = -1
+[pull]
+    ff = true
