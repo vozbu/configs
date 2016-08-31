@@ -77,6 +77,7 @@ if [[ `uname` == 'Darwin' ]]; then
 fi
 
 alias rejson='python -m json.tool'
+alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 
 # using nproc after correct PATH setting
 export MAKEFLAGS="-j `nproc`"
