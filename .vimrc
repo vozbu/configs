@@ -26,6 +26,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rking/ag.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-scripts/mru.vim'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
@@ -51,7 +52,8 @@ set is                                  " incremental search
 set hlsearch                            " highlight search
 set fencs=ucs-bom,utf-8,default,cp1251  " fileencodings: list of char-encs considered when starting to edit an existing file"
 set foldenable                          " сворачивание функций и т.п.
-set foldmethod=syntax                   " клавиши zc, zo, zr
+"set foldmethod=syntax                   " клавиши zc, zo, zr
+set foldmethod=indent                   " клавиши zc, zm, zr. Быстрее, чем syntax, что заметно на больших файлах
 set mouse=a                             " включить мышь везде, где только можно
 set list                                " включить отображение непечатных символов на экране
 set listchars=tab:>.,trail:.            " отображать табы и пробелы в конце строки
@@ -161,6 +163,8 @@ map <Leader>w <Plug>(easymotion-w)
 map <Leader>e <Plug>(easymotion-e)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " маппим русские буквы в английские для управления
 map ё `
