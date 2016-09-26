@@ -2,6 +2,9 @@ set hlsearch
 set newtab="all"
 execute "source ~/.vimperator/user_scripts/sslstatus.js"
 
+" временный фикс на тему того, что перестало работать автодополнение при открытии вкладки
+js services.services.autoCompleteSearch.class_="@mozilla.org/autocomplete/search;1?name=unifiedcomplete"
+
 autocmd LocationChange .*                                       js modes.passAllKeys = false
 autocmd LocationChange hive1\\.trghive\\.corp\\.mail\\.ru:443   js modes.passAllKeys = true
 
