@@ -65,8 +65,6 @@ if [[ `uname` == 'Darwin' ]]; then
     # for brew coreutil
     alias ls='ls --color=auto'
     alias ldd='otool -L'
-
-    which boot2docker > /dev/null && eval "$(boot2docker shellinit 2>/dev/null)"
 fi
 
 alias rejson='python -m json.tool'
