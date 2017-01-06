@@ -41,6 +41,7 @@ export CCACHE_SLOPPINESS=pch_defines,time_macros
 export EDITOR="/usr/bin/vim"
 export MANPAGER="sed -e 's/\x1B\[[[:digit:]]\+m//g' | col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -c 'nnoremap i <nop>' -"
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+export GOPATH="$HOME/programming/go"
 
 if [[ `uname` == 'Darwin' ]]; then
     if which brew > /dev/null; then
