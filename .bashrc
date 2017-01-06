@@ -70,7 +70,7 @@ fi
 
 alias rejson='python -m json.tool'
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
-alias scp="scp -p"
+alias scp="scp -p -r"
 
 # using nproc after correct PATH setting
 export MAKEFLAGS="-j `nproc`"
