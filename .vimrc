@@ -1,3 +1,8 @@
+" Buttons
+" <C-x> - Ctrl+x
+" <CR> - Enter
+" <Leader> - \
+
 let os = ""
 if has("unix")
   let os = substitute(system('uname'), "\n", "", "")
@@ -94,13 +99,18 @@ endif
 " insert date
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
-map  :w!<CR>:!aspell check %<CR>:e! %<CR>
 
 if os == "Darwin"
     " copy to system clipboard
     nmap <F2> :.w !pbcopy<CR><CR>
     vmap <F2> :w !pbcopy<CR><CR>
 endif
+
+" Переключение в режим вставки без обработки текста - быстрее вставляет
+set pastetoggle=<F3>
+
+" Отменить подсветку последнего поиска
+nmap <silent> ,/ :nohlsearch<CR>
 
 " чтобы не сохранять в конце файла перевод строки
 " set binary
