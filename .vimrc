@@ -168,6 +168,17 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=0
 "let g:airline_theme='solarized'
 
+" leave insert mode quickly
+" Powerline makes it sluggish
+if ! has('gui_running')
+set ttimeoutlen=10
+augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+augroup END
+endif
+
 " EasyMotion
 map <Leader>s <Plug>(easymotion-s)
 map <Leader>w <Plug>(easymotion-w)
