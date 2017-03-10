@@ -157,11 +157,13 @@ function prompt_command {
                     GIT_BRANCH=${GIT_BRANCH#refs/heads/}
 
                     # get git status
-                    local GIT_STATUS=$($PS1_GIT_BIN status --porcelain 2>/dev/null)
-                    [[ -n $GIT_STATUS ]] && GIT_DIRTY=1
-                    LANG=C $PS1_GIT_BIN status -sb | grep behind           2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}<<${c_off}"
-                    LANG=C $PS1_GIT_BIN status -sb | grep ahead            2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}>>${c_off}"
-                    LANG=C $PS1_GIT_BIN status -sb | egrep "ahead.+behind" 2>/dev/null >/dev/null && GIT_PULL=" ${cf_yellow}<<>>${c_off}"
+                    local GIT_STATUS=$(LANG=C $PS1_GIT_BIN status -sb 2>/dev/null)
+                    local LINES=$(echo "$GIT_STATUS" | wc -l)
+                    [ $LINES -gt 1 ] && GIT_DIRTY=1
+
+                    echo "$GIT_STATUS" | grep    -q behind          && GIT_PULL=" ${cf_yellow}<<${c_off}"
+                    echo "$GIT_STATUS" | grep    -q ahead           && GIT_PULL=" ${cf_yellow}>>${c_off}"
+                    echo "$GIT_STATUS" | grep -E -q "ahead.+behind" && GIT_PULL=" ${cf_yellow}<<>>${c_off}"
                 fi
             fi
         fi
