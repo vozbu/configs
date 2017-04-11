@@ -96,6 +96,18 @@ if has('gui_running')
     endif
 endif
 
+" Disable Arrow keys in Escape mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Disable Arrow keys in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 " insert date
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
