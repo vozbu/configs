@@ -33,7 +33,7 @@ update_interval 1.0
 uppercase no
 use_spacer right
 use_xft yes
-xftfont Terminus:size=10
+xftfont xos4 Terminus:size=10
 
 TEXT
 ${color1}Kernel$color $kernel

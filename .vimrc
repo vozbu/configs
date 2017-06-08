@@ -92,7 +92,7 @@ if has('gui_running')
     if os == "Darwin"
         set guifont=Meslo\ LG\ M\ for\ Powerline:h14
     else
-        set guifont=Terminus\ 10
+        set guifont=xos4\ Terminus\ 10
     endif
 endif
 
