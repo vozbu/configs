@@ -33,6 +33,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'pboettch/vim-cmake-syntax'
+Plugin 'surround.vim'
+Plugin 'repeat.vim'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
