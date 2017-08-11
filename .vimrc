@@ -76,6 +76,7 @@ autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные про
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
 let c_no_curly_error=1                  " запрещаем подсветку {} внутри () как ошибку (для c++0x)
 set switchbuf+=usetab,newtab            " quickfix открывает новую вкладку или испольует существующую, если там нужный буфер
+set diffopt+=vertical                   " располагать окна для диффа слева и справа
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
