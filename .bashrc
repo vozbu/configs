@@ -14,16 +14,6 @@ if [[ $- != *i* ]] ; then
     return
 fi
 
-
-# Put your fun stuff here.
-if [[ -f /etc/profile.d/bash-completion.sh ]]; then
-    source /etc/profile.d/bash-completion.sh
-elif [[ -d /etc/bash_completion.d ]]; then
-    for i in `ls /etc/bash_completion.d`; do
-        source /etc/bash_completion.d/$i
-    done
-fi
-
 # don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth,erasedups
 export HISTFILESIZE=3000
