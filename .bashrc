@@ -14,6 +14,12 @@ if [[ $- != *i* ]] ; then
     return
 fi
 
+if [[ -d /etc/bash_completion.d ]]; then
+    for i in /etc/bash_completion.d/*; do
+        source $i
+    done
+fi
+
 # don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth,erasedups
 export HISTFILESIZE=3000
