@@ -23,6 +23,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'occur.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
 Plugin 'vim-jp/vim-go-extra'
@@ -96,7 +97,7 @@ if has('gui_running')
     if os == "Darwin"
         set guifont=Meslo\ LG\ M\ for\ Powerline:h14
     else
-        set guifont=xos4\ Terminus\ 10
+        set guifont=xos4\ Terminus\ 14
     endif
 endif
 
