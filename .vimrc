@@ -20,22 +20,24 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
 Plugin 'occur.vim'
+Plugin 'repeat.vim'
+Plugin 'surround.vim'
+
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-dispatch'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'fatih/vim-go'
-Plugin 'vim-jp/vim-go-extra'
-Plugin 'majutsushi/tagbar'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'rking/ag.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-scripts/mru.vim'
+Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'pboettch/vim-cmake-syntax'
-Plugin 'surround.vim'
-Plugin 'repeat.vim'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-jp/vim-go-extra'
+Plugin 'vim-scripts/mru.vim'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
