@@ -116,8 +116,8 @@ imap <left> <nop>
 imap <right> <nop>
 
 " insert date
-nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
-inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+nnoremap <F5> "=strftime("%Y.%m.%d %H:%M")<CR>P
+inoremap <F5> <C-R>=strftime("%Y.%m.%d %H:%M")<CR>
 
 if os == "Darwin"
     " copy to system clipboard
