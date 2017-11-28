@@ -26,7 +26,10 @@
     autocorrect = -1
 [pull]
     ff = true
+    rebase = true
 [log]
     follow = true
 [fetch]
     recurseSubmodules = true
+[rebase]
+    autoSquash = true
