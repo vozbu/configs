@@ -33,3 +33,4 @@
     recurseSubmodules = true
 [rebase]
     autoSquash = true
+    autoStash = true
