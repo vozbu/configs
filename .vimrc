@@ -38,6 +38,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'shime/vim-livedown.git'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tyru/open-browser.vim'
 Plugin 'vim-jp/vim-go-extra'
 Plugin 'vim-scripts/mru.vim'
 
@@ -202,6 +203,11 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+"OpenBrowser
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 " маппим русские буквы в английские для управления
 map ё `
