@@ -1,5 +1,7 @@
 [color]
     ui = auto
+[pager]
+    branch = false
 [diff]
     renamelimit = 0
     tool = kdiff3
