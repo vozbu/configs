@@ -1,42 +1,45 @@
-alignment middle_right
-background yes
-border_width 1
-color1 orange
-color2 cyan
-color3 brown
-color4 grey
-cpu_avg_samples 2
-default_color white
-default_outline_color white
-default_shade_color white
-default_bar_size 0 4
-draw_borders no
-draw_graph_borders no
-draw_outline no
-draw_shades no
-double_buffer yes
-gap_x 5
-gap_y 0
-minimum_size 5 5
-net_avg_samples 2
-no_buffers yes
-out_to_console no
-own_window yes
-own_window_argb_visual yes
-own_window_hints undecorated,sticky,skip_taskbar,skip_pager
-own_window_transparent yes
-own_window_type normal
-show_graph_scale no
-show_graph_range no
-stippled_borders 0
-update_interval 1.0
-uppercase no
-use_spacer right
-use_xft yes
-xftfont xos4 Terminus:size=10
-xftfont Droid Sans Mono:size=10
+conky.config = {
+	alignment = 'middle_right',
+	background = true,
+	border_width = 1,
+	color1 = 'orange',
+	color2 = 'cyan',
+	color3 = 'brown',
+	color4 = 'grey',
+	cpu_avg_samples = 2,
+	default_color = 'white',
+	default_outline_color = 'white',
+	default_shade_color = 'white',
+	default_bar_width = 0, default_bar_height = 4,
+	draw_borders = false,
+	draw_graph_borders = false,
+	draw_outline = false,
+	draw_shades = false,
+	double_buffer = true,
+	gap_x = 5,
+	gap_y = 0,
+	minimum_width = 5, minimum_height = 5,
+	net_avg_samples = 2,
+	no_buffers = true,
+	out_to_console = false,
+	own_window = true,
+	own_window_argb_visual = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager',
+	own_window_transparent = true,
+	own_window_type = 'normal',
+	show_graph_scale = false,
+	show_graph_range = false,
+	stippled_borders = 0,
+	update_interval = 1.0,
+	uppercase = false,
+	use_spacer = 'right',
+	use_xft = true,
+	font = 'xos4 Terminus:size=10',
+	font = 'Droid Sans Mono:size=10',
 
-TEXT
+};
+
+conky.text = [[
 ${color1}Kernel$color $kernel
 ${color1}Uptime$color $uptime
 ${color1}Processing$color
@@ -49,8 +52,8 @@ ${color1}Processing$color
   ${color2}Freq$color ${freq_g 1} ${freq_g 2} ${freq_g 3} ${freq_g 4}
   ${color2}Load avg$color $loadavg
  ${color2}RAM$color $memperc% ${membar}
- ${color2}Cached$color $cached${if_mounted ladjfla}
- ${color2}Swap$color $swapperc% ${swapbar}$endif
+ ${color2}Cached$color $cached
+ ${color2}Swap$color $swapperc% ${swapbar}
 $stippled_hr
 ${color1}Temperatures
  ${color2}HDD$color ${hddtemp /dev/sda} ${hddtemp /dev/sdb}
@@ -104,3 +107,4 @@ ${if_up tun0}
        ${totaldown tun0}              ${totalup tun0}
  ${downspeedgraph tun0 20,140} ${alignr}${upspeedgraph tun0 20,140}
  Address: ${addrs tun0} ($nodename)$endif
+]];
