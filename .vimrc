@@ -103,6 +103,7 @@ if has('gui_running')
         set guifont=Meslo\ LG\ M\ for\ Powerline:h14
     else
         set guifont=xos4\ Terminus\ 14
+        set guifont=Hack\ 10
     endif
 endif
 
