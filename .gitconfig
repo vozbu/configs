@@ -4,7 +4,7 @@
     branch = false
 [diff]
     renamelimit = 0
-    tool = kompare
+    tool = meld
 [difftool]
     prompt = false
 [merge]
