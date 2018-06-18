@@ -78,7 +78,7 @@ set complete=.,w,b,u,t                  " автодополнять без по
 set path=.,include/**;/home/vozbu/programming
 set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/include/**
 " autocmd BufNewFile,BufRead *.cpp set syntax=cpp11   " поддержка синтаксиса C++11 в .cpp-файлах
-autocmd BufNewFile,BufRead *.cpp set syntax=cpp   " поддержка синтаксиса C++11 в .cpp-файлах
+" autocmd BufNewFile,BufRead *.cpp set syntax=cpp   " поддержка синтаксиса C++11 в .cpp-файлах, включено в плагине
 autocmd FileType cpp set keywordprg=cppman  " По Shift + K открывать документацию к cpp с использованием cppman
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
@@ -209,6 +209,15 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+" настройки форматирования cpp
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+"let g:cpp_class_decl_highlight = 1
+"let g:cpp_experimental_simple_template_highlight = 1
+"let g:cpp_experimental_template_highlight = 1
+"let g:cpp_concepts_highlight = 1
+"let g:cpp_no_function_highlight = 1
 
 " маппим русские буквы в английские для управления
 map ё `
