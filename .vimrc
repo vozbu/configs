@@ -74,8 +74,9 @@ set list                                " включить отображени�
 set listchars=tab:>.,trail:.            " отображать табы и пробелы в конце строки
 set complete=.,w,b,u,t                  " автодополнять без поиска по включенным файлам
 " пути для удобного открытия инклюдов по gf
-" set path=.,,**/include/**;/home/vozbu/programming
-set path=.,include/**;/home/vozbu/programming
+set path=.,,
+set path+=include/**;/home/vozbu/programming
+set path+=/home/vozbu/programming/target/**
 set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/include/**
 " autocmd BufNewFile,BufRead *.cpp set syntax=cpp11   " поддержка синтаксиса C++11 в .cpp-файлах
 " autocmd BufNewFile,BufRead *.cpp set syntax=cpp   " поддержка синтаксиса C++11 в .cpp-файлах, включено в плагине
