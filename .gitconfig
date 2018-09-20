@@ -35,3 +35,5 @@
 [rebase]
     autoSquash = true
     autoStash = true
+[grep]
+    threads = 4
