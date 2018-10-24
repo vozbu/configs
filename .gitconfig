@@ -1,3 +1,5 @@
+[init]
+    templatedir = ~/.gittemplate
 [color]
     ui = auto
 [pager]
