@@ -19,7 +19,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'occur.vim'
 Plugin 'repeat.vim'
@@ -105,6 +105,7 @@ endif
 if has('gui_running')
     if os == "Darwin"
         set guifont=Meslo\ LG\ M\ for\ Powerline:h14
+        "set guifont=Anonymous\ Pro\ for\ Powerline:h16
     else
         set guifont=xos4\ Terminus\ 14
     endif
