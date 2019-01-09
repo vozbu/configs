@@ -8,6 +8,12 @@ if has("unix")
   let os = substitute(system('uname'), "\n", "", "")
 endif
 
+" fix for using in the screen and tmux
+" put it really high before applying other options
+if match($TERM, "screen")!=-1
+  set term=xterm-256color
+endif
+
 " Vundle options
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -96,11 +102,6 @@ autocmd BufReadPost *
 \ if line("'\"") >= 1 && line("'\"") <= line("$") |
 \   exe "normal! g`\"" |
 \ endif
-
-" fix for using in the screen
-if match($TERM, "screen")!=-1
-  set term=xterm-256color
-endif
 
 if has('gui_running')
     if os == "Darwin"
