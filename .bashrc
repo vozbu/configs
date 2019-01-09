@@ -64,7 +64,6 @@ if [[ `uname` == 'Darwin' ]]; then
     alias ldd='otool -L'
 fi
 
-alias rejson='python -m json.tool'
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 alias scp="scp -p -r"
 
