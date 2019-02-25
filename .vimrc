@@ -32,6 +32,7 @@ Plugin 'repeat.vim'
 Plugin 'surround.vim'
 
 Plugin 'bling/vim-airline'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fatih/vim-go'
@@ -223,6 +224,9 @@ vmap gx <Plug>(openbrowser-smart-search)
 "let g:cpp_experimental_template_highlight = 1
 "let g:cpp_concepts_highlight = 1
 "let g:cpp_no_function_highlight = 1
+
+" CtrlP
+let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " маппим русские буквы в английские для управления
 map ё `
