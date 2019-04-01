@@ -66,6 +66,7 @@ fi
 
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 alias scp="scp -p -r"
+alias lg="lazygit"
 
 # using nproc after correct PATH setting
 export MAKEFLAGS="-j `nproc`"
