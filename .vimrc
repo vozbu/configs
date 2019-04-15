@@ -36,11 +36,13 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fatih/vim-go'
+Plugin 'godlygeek/tabular'
 Plugin 'google/vim-searchindex'
 Plugin 'majutsushi/tagbar'
 Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'pboettch/vim-cmake-syntax'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -231,6 +233,9 @@ vmap gx <Plug>(openbrowser-smart-search)
 " CtrlP
 let g:ctrlp_cmd = 'CtrlPBuffer'
 
+" for markdown syntax
+set conceallevel=2
+
 " маппим русские буквы в английские для управления
 map ё `
 map й q
@@ -298,4 +303,3 @@ map Т N
 map Ь M
 map Б <
 map Ю >
-
