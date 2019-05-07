@@ -2,4 +2,6 @@
 *.swp
 tags
 
-*build*/
+build_*/
+fast-build/
+bazel-*
