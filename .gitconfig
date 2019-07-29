@@ -33,7 +33,7 @@
 [log]
     follow = true
 [fetch]
-    recurseSubmodules = true
+    recurseSubmodules = false
 [rebase]
     autoSquash = true
     autoStash = true
