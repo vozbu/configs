@@ -89,7 +89,7 @@ set linebreak                           " обрезать длинные стр
 set complete=.,w,b,u,t                  " автодополнять без поиска по включенным файлам
 " пути для удобного открытия инклюдов по gf
 set path=.,,
-set path+=include/**;$HOME/programming
+set path+=**
 set path+=$HOME/programming/target/**
 set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/include/**
 " autocmd BufNewFile,BufRead *.cpp set syntax=cpp11   " поддержка синтаксиса C++11 в .cpp-файлах
