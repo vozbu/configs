@@ -181,6 +181,7 @@ endfunction
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 nmap <F9> :TagbarToggle<CR>
+set tags^=./.git/tags;
 
 " Clang Format
 map <C-K> :!clang-format -style=WebKit<CR>
