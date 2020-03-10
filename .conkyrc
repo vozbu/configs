@@ -37,6 +37,16 @@ conky.config = {
 	font = 'xos4 Terminus:size=10',
 	font = 'Droid Sans Mono:size=14',
 
+   template0 = [[${if_existing /dev/\1}
+ ${color3}\1$color ${diskio_read \1}          ${color3}\1$color ${diskio_write \1}
+ ${diskiograph_read \1 30,200}${alignr}${diskiograph_write \1 30,200}$endif]],
+   template1 = [[${if_mounted \1}
+ ${color2}\1$color ${alignr}${fs_free \1} ${fs_bar 10,220 \1}$endif]],
+   template2 = [[${if_up \1}
+ ${color3}\1$color  ${downspeed \1}        ${color3}\1$color  ${upspeed \1}
+       ${totaldown \1}              ${totalup \1}
+ ${downspeedgraph \1 40,200} ${alignr}${upspeedgraph \1 40,200}
+ Address: ${addrs \1} ($nodename)$endif]],
 };
 
 conky.text = [[
@@ -66,20 +76,7 @@ ${color1}Fans
 $stippled_hr
 ${color1}Disk IO$color
  ${color2}Read                 Write$color
- ${color3}sda$color ${diskio_read sda}          ${color3}sda$color ${diskio_write sda}
- ${diskiograph_read sda 40,140}${alignr}${diskiograph_write sda 40,140}
- ${color3}sdb$color ${diskio_read sdb}          ${color3}sdb$color ${diskio_write sdb}
- ${diskiograph_read sdb 40,140}${alignr}${diskiograph_write sdb 40,140}${if_existing /dev/sdc}
- ${color3}sdc$color ${diskio_read sdc}          ${color3}sdc$color ${diskio_write sdc}
- ${diskiograph_read sdc 40,140}${alignr}${diskiograph_write sdc 40,140}$endif${if_existing /dev/sdd}
- ${color3}sdd$color ${diskio_read sdd}          ${color3}sdd$color ${diskio_write sdd}
- ${diskiograph_read sdd 40,140}${alignr}${diskiograph_write sdd 40,140}$endif${if_existing /dev/sdg}
- ${color3}sdg$color ${diskio_read sdg}          ${color3}sdg$color ${diskio_write sdg}
- ${diskiograph_read sdg 40,140}${alignr}${diskiograph_write sdg 40,140}$endif${if_existing /dev/sdh}
- ${color3}sdh$color ${diskio_read sdh}          ${color3}sdh$color ${diskio_write sdh}
- ${diskiograph_read sdh 40,140}${alignr}${diskiograph_write sdh 40,140}$endif${if_existing /dev/sdi}
- ${color3}sdi$color ${diskio_read sdi}          ${color3}sdi$color ${diskio_write sdi}
- ${diskiograph_read sdi 40,140}${alignr}${diskiograph_write sdi 40,140}$endif
+ ${template0 sda}${template0 sdb}${template0 sdc}${template0 sdd}${template0 sde}${template0 sdf}${template0 sdg}${template0 sdh}${template0 sdi}
 $stippled_hr
 ${color1}Filesystems$color
  ${color2}/$color ${alignr}${fs_free /} ${fs_bar 10,220 /}${if_mounted /boot}
@@ -93,18 +90,7 @@ ${color1}Filesystems$color
 $stippled_hr
 ${color1}Networking
  ${color2}Down                 Up
- ${color3}eth0$color  ${downspeed eth0}        ${color3}eth0$color  ${upspeed eth0}
-       ${totaldown eth0}              ${totalup eth0}
- ${downspeedgraph eth0 40,200} ${alignr}${upspeedgraph eth0 40,200}
- Address: ${addrs eth0} ($nodename)
-${if_up wlan0}
- ${color3}wlan0$color  ${downspeed wlan0}        ${color3}wlan0$color  ${upspeed wlan0}
-       ${totaldown wlan0}              ${totalup wlan0}
- ${downspeedgraph wlan0 40,200} ${alignr}${upspeedgraph wlan0 40,200}
- Address: ${addrs wlan0} ($nodename)$endif
-${if_up tun0}
- ${color3}tun0$color  ${downspeed tun0}        ${color3}tun0$color  ${upspeed tun0}
-       ${totaldown tun0}              ${totalup tun0}
- ${downspeedgraph tun0 40,200} ${alignr}${upspeedgraph tun0 40,200}
- Address: ${addrs tun0} ($nodename)$endif
+ ${template2 eth0}
+ ${template2 wlan0}
+ ${template2 tun0}
 ]];
