@@ -38,6 +38,7 @@ export CCACHE_SLOPPINESS=pch_defines,time_macros
 export EDITOR="/usr/bin/vim"
 export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+export GOPATH="$HOME/programming/go"
 
 if [[ `uname` == 'Darwin' ]]; then
     if which brew > /dev/null; then
