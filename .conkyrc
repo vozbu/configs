@@ -1,52 +1,53 @@
 conky.config = {
-	alignment = 'middle_right',
-	background = true,
-	border_width = 1,
-	color1 = 'orange',
-	color2 = 'cyan',
-	color3 = 'brown',
-	color4 = 'grey',
-	cpu_avg_samples = 2,
-	default_color = 'white',
-	default_outline_color = 'white',
-	default_shade_color = 'white',
-	default_bar_width = 0, default_bar_height = 4,
-	draw_borders = false,
-	draw_graph_borders = false,
-	draw_outline = false,
-	draw_shades = false,
-	double_buffer = true,
-	gap_x = 5,
-	gap_y = 0,
-	minimum_width = 5, minimum_height = 5,
-	net_avg_samples = 2,
-	no_buffers = true,
-	out_to_console = false,
-	own_window = true,
-	own_window_argb_visual = true,
-	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager',
-	own_window_transparent = true,
-	own_window_type = 'normal',
-	show_graph_scale = false,
-	show_graph_range = false,
-	stippled_borders = 0,
-	update_interval = 1.0,
-	uppercase = false,
-	use_spacer = 'right',
-	use_xft = true,
-	font = 'xos4 Terminus:size=10',
-	font = 'Droid Sans Mono:size=14',
-
+   alignment = 'middle_right',
+   background = true,
+   border_width = 1,
+   color1 = 'orange',
+   color2 = 'cyan',
+   color3 = 'brown',
+   color4 = 'grey',
+   cpu_avg_samples = 2,
+   default_bar_width = 0, default_bar_height = 4,
+   default_color = 'white',
+   default_outline_color = 'white',
+   default_shade_color = 'white',
+   double_buffer = true,
+   draw_borders = false,
+   draw_graph_borders = false,
+   draw_outline = false,
+   draw_shades = false,
+   font = 'xos4 Terminus:size=10',
+   font = 'Droid Sans Mono:size=14',
+   gap_x = 5,
+   gap_y = 0,
+   minimum_width = 5, minimum_height = 5,
+   net_avg_samples = 2,
+   no_buffers = true,
+   out_to_console = false,
+   own_window = true,
+   own_window_argb_visual = true,
+   own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager',
+   own_window_transparent = true,
+   own_window_type = 'normal',
+   show_graph_range = false,
+   show_graph_scale = false,
+   stippled_borders = 0,
    template0 = [[${if_existing /dev/\1}
  ${color3}\1$color ${diskio_read \1}          ${color3}\1$color ${diskio_write \1}
  ${diskiograph_read \1 30,200}${alignr}${diskiograph_write \1 30,200}$endif]],
    template1 = [[${if_mounted \1}
  ${color2}\1$color ${alignr}${fs_free \1} ${fs_bar 10,220 \1}$endif]],
-   template2 = [[${if_up \1}
- ${color3}\1$color  ${downspeed \1}        ${color3}\1$color  ${upspeed \1}
+   template2 = [[${if_up \1}${color3}\1$color  ${downspeed \1}        ${color3}\1$color  ${upspeed \1}
        ${totaldown \1}              ${totalup \1}
  ${downspeedgraph \1 40,200} ${alignr}${upspeedgraph \1 40,200}
  Address: ${addrs \1} ($nodename)$endif]],
+   template3 = [[${if_existing /dev/\1}
+ ${color3}\2$color ${diskio_read \1}          ${color3}\2$color ${diskio_write \1}
+ ${diskiograph_read \1 30,200}${alignr}${diskiograph_write \1 30,200}$endif]],
+   update_interval = 1.0,
+   uppercase = false,
+   use_spacer = 'right',
+   use_xft = true,
 };
 
 conky.text = [[
@@ -54,39 +55,42 @@ ${color1}Kernel$color $kernel
 ${color1}Uptime$color $uptime
 ${color1}Processing$color
  ${color2}CPU
-  ${color3}Total$color ${cpu cpu0}% ${cpubar cpu0 10}
-  ${color4}Core1 ${cpu cpu1}% ${cpubar cpu1 10}
-  ${color4}Core2 ${cpu cpu2}% ${cpubar cpu2 10}
-  ${color4}Core3 ${cpu cpu3}% ${cpubar cpu3 10}
-  ${color4}Core4 ${cpu cpu4}% ${cpubar cpu4 10}
-  ${color2}Freq$color ${freq_g 1} ${freq_g 2} ${freq_g 3} ${freq_g 4}
-  ${color2}Load avg$color $loadavg
+  ${color3}Total$color ${cpu cpu0}% ${cpubar cpu0 10}${color4}
+  ${cpubar cpu1 10,270} ${cpubar cpu13 10}${voffset -15}
+  ${cpubar cpu2 10,270} ${cpubar cpu14 10}${voffset -15}
+  ${cpubar cpu3 10,270} ${cpubar cpu15 10}${voffset -15}
+  ${cpubar cpu4 10,270} ${cpubar cpu16 10}${voffset -15}
+  ${cpubar cpu5 10,270} ${cpubar cpu17 10}${voffset -15}
+  ${cpubar cpu6 10,270} ${cpubar cpu18 10}${voffset -15}
+  ${cpubar cpu7 10,270} ${cpubar cpu19 10}${voffset -15}
+  ${cpubar cpu8 10,270} ${cpubar cpu20 10}${voffset -15}
+  ${cpubar cpu5 10,270} ${cpubar cpu17 10}${voffset -15}
+  ${cpubar cpu6 10,270} ${cpubar cpu18 10}${voffset -15}
+  ${cpubar cpu7 10,270} ${cpubar cpu19 10}${voffset -15}
+  ${cpubar cpu8 10,270} ${cpubar cpu20 10}${color2}
+ ${color2}Freq$color${font :size=12}
+    ${freq_g 1} ${freq_g 2} ${freq_g 3} ${freq_g 4} ${freq_g 5} ${freq_g 6}
+    ${freq_g 7} ${freq_g 8} ${freq_g 9} ${freq_g 10} ${freq_g 11} ${freq_g 12}
+    ${freq_g 13} ${freq_g 14} ${freq_g 15} ${freq_g 16} ${freq_g 17} ${freq_g 18}
+    ${freq_g 19} ${freq_g 20} ${freq_g 21} ${freq_g 22} ${freq_g 23} ${freq_g 24}$font
+ ${color2}Load avg$color $loadavg
+ ${color2}GPU$color ${nvidia gpuutil}% (mem ${nvidia membwutil}% video ${nvidia videoutil}% pci ${nvidia pcieutil}%)
  ${color2}RAM$color $memperc% ${membar 10}
  ${color2}Cached$color $cached
- ${color2}Swap$color $swapperc% ${swapbar 10}
 $stippled_hr
 ${color1}Temperatures
- ${color2}HDD$color ${hddtemp /dev/sda} ${hddtemp /dev/sdb}
- ${color2}CPU$color ( ${hwmon 0 temp 1}) ${hwmon 0 temp 2} ${hwmon 0 temp 3} ${hwmon 0 temp 4} ${hwmon 0 temp 5}
+ ${color2}CPU$color ${hwmon 0 temp 1}     ${color2}GPU$color ${nvidia gputemp}
+ ${color2}HDD$color ${hddtemp /dev/sda}${hddtemp /dev/sdb}
 $stippled_hr
 ${color1}Fans
- ${color2}CPU$color ${hwmon 1 fan 2}
- ${color2}Chassis$color ${hwmon 1 fan 3}
- ${color2}Chassis$color ${hwmon 1 fan 1}
+ ${color2}CPU$color ${hwmon 1 fan 2} ${color2}GPU$color ${nvidia fanspeed}
+ ${color2}Chassis$color ${hwmon 1 fan 3} ${color2}Chassis$color ${hwmon 1 fan 1}
 $stippled_hr
 ${color1}Disk IO$color
  ${color2}Read                 Write$color
- ${template0 sda}${template0 sdb}${template0 sdc}${template0 sdd}${template0 sde}${template0 sdf}${template0 sdg}${template0 sdh}${template0 sdi}
+ ${template0 sda}${template0 sdb}${template0 sdc}${template0 sdd}${template0 sde}${template0 sdf}${template0 sdg}${template0 sdh}${template0 sdi}${template3 nvme0n1 nvm}
 $stippled_hr
-${color1}Filesystems$color
- ${color2}/$color ${alignr}${fs_free /} ${fs_bar 10,220 /}${if_mounted /boot}
- ${color2}/boot$color ${alignr}${fs_free /boot} ${fs_bar 10,220 /boot}$endif
- ${color2}/home$color ${alignr}${fs_free /home} ${fs_bar 10,220 /home}${if_mounted /home/vozbu/programming}
- ${color2}prg$color ${alignr}${fs_free /home/vozbu/programming} ${fs_bar 10,220 /home}$endif
- ${color2}/mnt/media$color ${alignr}${fs_free /mnt/media} ${fs_bar 10,220 /mnt/media}
- ${color2}/mnt/pmedia$color ${alignr}${fs_free /mnt/pmedia} ${fs_bar 10,220 /mnt/pmedia}
- ${color2}/mnt/hdd$color ${alignr}${fs_free /mnt/hdd} ${fs_bar 10,220 /mnt/hdd}${if_mounted /mnt/backups}
- ${color2}/mnt/backups$color ${alignr}${fs_free /mnt/backups} ${fs_bar 10,220 /mnt/backups}$endif
+${color1}Filesystems$color${template1 /}${template1 /boot}${template1 /home}${template1 /mnt/media}${template1 /mnt/pmedia}${template1 /mnt/hdd}${template1 /mnt/backups}${template1 /mnt/ext_backups}
 $stippled_hr
 ${color1}Networking
  ${color2}Down                 Up
