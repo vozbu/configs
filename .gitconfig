@@ -29,7 +29,7 @@
 [help]
     autocorrect = -1
 [pull]
-    ff = true
+    ff = only
 [log]
     follow = true
 [fetch]
