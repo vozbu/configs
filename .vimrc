@@ -68,6 +68,12 @@ set bg=dark
 " colorscheme manxome
 colorscheme wombat256
 let leave_my_textwidth_alone='yes'      " убираем автоматический перенос строк в текстовых файлах (Gentoo-specific)
+set textwidth=120                       " автоматически переносить строки длиннее 120 символов
+if $MAN_PN != 1
+    set colorcolumn=+1                      " рисовать вертикальную линию после textdiwth
+endif
+" рисовать ее серой, а не красной
+"highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 syntax on                               " включаем подсветку синтаксиса
 set softtabstop=4 shiftwidth=4 expandtab
 set cindent                             " отступы в стиле Си
