@@ -68,7 +68,6 @@ set bg=dark
 " colorscheme manxome
 colorscheme wombat256
 let leave_my_textwidth_alone='yes'      " убираем автоматический перенос строк в текстовых файлах (Gentoo-specific)
-set textwidth=120                       " автоматически переносить строки длиннее 120 символов
 if $MAN_PN != 1
     set colorcolumn=+1                      " рисовать вертикальную линию после textdiwth
 endif
@@ -100,9 +99,11 @@ set path+=$HOME/programming/target/**
 set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/include/**
 " autocmd BufNewFile,BufRead *.cpp set syntax=cpp11   " поддержка синтаксиса C++11 в .cpp-файлах
 " autocmd BufNewFile,BufRead *.cpp set syntax=cpp   " поддержка синтаксиса C++11 в .cpp-файлах, включено в плагине
-autocmd BufNewFile,BufRead *.dox set syntax=doxygen " поддержка синтаксиса Doxygen в .dox-файлах
-autocmd FileType cpp set keywordprg=cppman  " По Shift + K открывать документацию к cpp с использованием cppman
-autocmd FileType go set ts=4
+autocmd BufNewFile,BufRead *.dox setlocal syntax=doxygen    " поддержка синтаксиса Doxygen в .dox-файлах
+autocmd FileType cpp setlocal keywordprg=cppman             " По Shift + K открывать документацию к cpp с использованием cppman
+autocmd FileType go setlocal ts=4                           " размер таба 4 символа
+autocmd FileType c,cpp,go,python,sh setlocal textwidth=120  " автоматически переносить строки длиннее 120 символов
+autocmd BufNewFile,BufRead .vimrc setlocal textwidth=0
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
 let c_no_curly_error=1                  " запрещаем подсветку {} внутри () как ошибку (для c++0x)
