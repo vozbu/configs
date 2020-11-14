@@ -44,6 +44,8 @@ conky.config = {
    template3 = [[${if_existing /dev/\1}
  ${color3}\2$color ${diskio_read \1}          ${color3}\2$color ${diskio_write \1}
  ${diskiograph_read \1 30,200}${alignr}${diskiograph_write \1 30,200}$endif]],
+   template4 = [[${if_mounted \1}
+ ${color2}\2$color ${alignr}${fs_free \1} ${fs_bar 10,220 \1}$endif]],
    update_interval = 1.0,
    uppercase = false,
    use_spacer = 'right',
@@ -56,23 +58,18 @@ ${color1}Uptime$color $uptime
 ${color1}Processing$color
  ${color2}CPU
   ${color3}Total$color ${cpu cpu0}% ${cpubar cpu0 10}${color4}
-  ${cpubar cpu1 10,270} ${cpubar cpu13 10}${voffset -15}
-  ${cpubar cpu2 10,270} ${cpubar cpu14 10}${voffset -15}
-  ${cpubar cpu3 10,270} ${cpubar cpu15 10}${voffset -15}
-  ${cpubar cpu4 10,270} ${cpubar cpu16 10}${voffset -15}
-  ${cpubar cpu5 10,270} ${cpubar cpu17 10}${voffset -15}
-  ${cpubar cpu6 10,270} ${cpubar cpu18 10}${voffset -15}
-  ${cpubar cpu7 10,270} ${cpubar cpu19 10}${voffset -15}
-  ${cpubar cpu8 10,270} ${cpubar cpu20 10}${voffset -15}
-  ${cpubar cpu5 10,270} ${cpubar cpu17 10}${voffset -15}
-  ${cpubar cpu6 10,270} ${cpubar cpu18 10}${voffset -15}
-  ${cpubar cpu7 10,270} ${cpubar cpu19 10}${voffset -15}
-  ${cpubar cpu8 10,270} ${cpubar cpu20 10}${color2}
+  ${cpubar cpu1 10,180} ${cpubar  cpu9 10,180} ${cpubar cpu17 10}${voffset -15}
+  ${cpubar cpu2 10,180} ${cpubar cpu10 10,180} ${cpubar cpu18 10}${voffset -15}
+  ${cpubar cpu3 10,180} ${cpubar cpu11 10,180} ${cpubar cpu19 10}${voffset -15}
+  ${cpubar cpu4 10,180} ${cpubar cpu12 10,180} ${cpubar cpu20 10}${voffset -15}
+  ${cpubar cpu5 10,180} ${cpubar cpu13 10,180} ${cpubar cpu21 10}${voffset -15}
+  ${cpubar cpu6 10,180} ${cpubar cpu14 10,180} ${cpubar cpu22 10}${voffset -15}
+  ${cpubar cpu7 10,180} ${cpubar cpu15 10,180} ${cpubar cpu23 10}${voffset -15}
+  ${cpubar cpu8 10,180} ${cpubar cpu16 10,180} ${cpubar cpu24 10}${voffset -15}
  ${color2}Freq$color${font :size=12}
-    ${freq_g 1} ${freq_g 2} ${freq_g 3} ${freq_g 4} ${freq_g 5} ${freq_g 6}
-    ${freq_g 7} ${freq_g 8} ${freq_g 9} ${freq_g 10} ${freq_g 11} ${freq_g 12}
-    ${freq_g 13} ${freq_g 14} ${freq_g 15} ${freq_g 16} ${freq_g 17} ${freq_g 18}
-    ${freq_g 19} ${freq_g 20} ${freq_g 21} ${freq_g 22} ${freq_g 23} ${freq_g 24}$font
+    ${freq_g  1} ${freq_g  2} ${freq_g  3} ${freq_g  4} ${freq_g  5} ${freq_g  6} ${freq_g  7} ${freq_g  8}
+    ${freq_g  9} ${freq_g 10} ${freq_g 11} ${freq_g 12} ${freq_g 13} ${freq_g 14} ${freq_g 15} ${freq_g 16}
+    ${freq_g 17} ${freq_g 18} ${freq_g 19} ${freq_g 20} ${freq_g 21} ${freq_g 22} ${freq_g 23} ${freq_g 24}$font
  ${color2}Load avg$color $loadavg
  ${color2}GPU$color ${nvidia gpuutil}% (mem ${nvidia membwutil}% video ${nvidia videoutil}% pci ${nvidia pcieutil}%)
  ${color2}RAM$color $memperc% ${membar 10}
@@ -90,7 +87,7 @@ ${color1}Disk IO$color
  ${color2}Read                 Write$color
  ${template0 sda}${template0 sdb}${template0 sdc}${template0 sdd}${template0 sde}${template0 sdf}${template0 sdg}${template0 sdh}${template0 sdi}${template3 nvme0n1 nvm}
 $stippled_hr
-${color1}Filesystems$color${template1 /}${template1 /boot}${template1 /home}${template1 /mnt/media}${template1 /mnt/pmedia}${template1 /mnt/hdd}${template1 /mnt/backups}${template1 /mnt/ext_backups}
+${color1}Filesystems$color${template1 /}${template1 /boot}${template4 /var/lib/docker docker}${template1 /home}${template1 /mnt/media}${template1 /mnt/pmedia}${template1 /mnt/hdd}${template1 /mnt/backups}${template1 /mnt/ext_backups}
 $stippled_hr
 ${color1}Networking
  ${color2}Down                 Up
