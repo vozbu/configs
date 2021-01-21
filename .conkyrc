@@ -6,6 +6,7 @@ conky.config = {
    color2 = 'cyan',
    color3 = 'brown',
    color4 = 'grey',
+   color5 = 'red',
    cpu_avg_samples = 2,
    default_bar_width = 0, default_bar_height = 4,
    default_color = 'white',
@@ -18,6 +19,7 @@ conky.config = {
    draw_shades = false,
    font = 'xos4 Terminus:size=10',
    font = 'Droid Sans Mono:size=14',
+   font = 'Bitstream Vera Sans Mono:size=14',
    gap_x = 5,
    gap_y = 0,
    minimum_width = 5, minimum_height = 5,
@@ -36,7 +38,7 @@ conky.config = {
  ${color3}\1$color ${diskio_read \1}          ${color3}\1$color ${diskio_write \1}
  ${diskiograph_read \1 30,200}${alignr}${diskiograph_write \1 30,200}$endif]],
    template1 = [[${if_mounted \1}
- ${color2}\1$color ${alignr}${fs_free \1} ${fs_bar 10,220 \1}$endif]],
+ ${color2}\1$color ${alignr}${fs_free \1} ${if_match ${fs_used_perc \1} >= 90}$color5$endif${fs_bar 10,220 \1}${if_match ${fs_used_perc \1} >= 90}$color$endif$endif]],
    template2 = [[${if_up \1}${color3}\1$color  ${downspeed \1}        ${color3}\1$color  ${upspeed \1}
        ${totaldown \1}              ${totalup \1}
  ${downspeedgraph \1 40,200} ${alignr}${upspeedgraph \1 40,200}
@@ -76,12 +78,12 @@ ${color1}Processing$color
  ${color2}Cached$color $cached
 $stippled_hr
 ${color1}Temperatures
- ${color2}CPU$color ${hwmon 0 temp 1}     ${color2}GPU$color ${nvidia gputemp}
- ${color2}HDD$color ${hddtemp /dev/sda}${hddtemp /dev/sdb}
+ ${color2}CPU$color ${hwmon 1 temp 1} ${color2}GPU$color ${nvidia gputemp}  ${color2}MB$color ${hwmon 0 temp 3}
+ ${color2}HDD$color ${color3}nvme$color ${head /tmp/nvme_temp 1 1} ${color3}sda$color ${hddtemp /dev/sda}${color3}sdb$color ${hddtemp /dev/sdb}
 $stippled_hr
 ${color1}Fans
- ${color2}CPU$color ${hwmon 1 fan 2} ${color2}GPU$color ${nvidia fanspeed}
- ${color2}Chassis$color ${hwmon 1 fan 3} ${color2}Chassis$color ${hwmon 1 fan 1}
+ ${color2}CPU$color ${hwmon 0 fan 1} ${color2}GPU$color ${nvidia fanspeed}
+ ${color2}Chassis$color ${hwmon 0 fan 2} ${color2}Chassis$color ${hwmon 0 fan 3}
 $stippled_hr
 ${color1}Disk IO$color
  ${color2}Read                 Write$color
@@ -94,4 +96,6 @@ ${color1}Networking
  ${template2 eth0}
  ${template2 wlan0}
  ${template2 tun0}
+$stippled_hr
+SSH connections: ${tcp_portmon 22 22 count}
 ]];
