@@ -13,7 +13,7 @@
     conflictstyle = diff3
     ff = false
 [pack]
-    threads = 4
+    threads = 8
 [user]
     name = Valeriy Bykov
     email = valery.bickov@gmail.com
@@ -24,8 +24,8 @@
 [push]
     default = current
 [gui]
-    fontui = -family \"Liberation Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
-    fontdiff = -family \"Liberation Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+	fontui = -family \"Liberation Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Liberation Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [help]
     autocorrect = -1
 [pull]
@@ -38,4 +38,4 @@
     autoSquash = true
     autoStash = true
 [grep]
-    threads = 4
+    threads = 8
