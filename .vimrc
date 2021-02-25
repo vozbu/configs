@@ -102,7 +102,8 @@ set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/
 autocmd BufNewFile,BufRead *.dox setlocal syntax=doxygen    " поддержка синтаксиса Doxygen в .dox-файлах
 autocmd FileType cpp setlocal keywordprg=cppman             " По Shift + K открывать документацию к cpp с использованием cppman
 autocmd FileType go setlocal ts=4                           " размер таба 4 символа
-autocmd FileType c,cpp,go,python,sh setlocal textwidth=120  " автоматически переносить строки длиннее 120 символов
+autocmd FileType c,cmake,cpp,go,markdown,python,sh setlocal textwidth=120 " автоматически переносить строки длиннее 120 символов
+autocmd FileType markdown setlocal spell spelllang=en,ru
 autocmd BufNewFile,BufRead .vimrc setlocal textwidth=0
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
@@ -193,9 +194,11 @@ nmap <F9> :TagbarToggle<CR>
 set tags^=./.git/tags;
 
 " Clang Format
-map <C-K> :!clang-format -style=WebKit<CR>
-imap <C-K> <c-o>:!clang-format -style=WebKit<CR>
-vmap <C-K> <c-o>:!clang-format -style=WebKit<CR>
+"map <C-K> :!clang-format -i %<CR>
+"imap <C-K> <c-o>:!clang-format <CR>
+"vmap <C-K> <c-o>:!clang-format <CR>
+map <C-K> :py3f /usr/lib/llvm/11/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /usr/lib/llvm/11/share/clang/clang-format.py<cr>
 
 " Git integration
 set laststatus=2
