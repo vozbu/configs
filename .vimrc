@@ -210,8 +210,13 @@ set tags^=./.git/tags;
 "map <C-K> :!clang-format -i %<CR>
 "imap <C-K> <c-o>:!clang-format <CR>
 "vmap <C-K> <c-o>:!clang-format <CR>
-map <C-K> :py3f /usr/lib/llvm/12/share/clang/clang-format.py<cr>
-imap <C-K> <c-o>:py3f /usr/lib/llvm/12/share/clang/clang-format.py<cr>
+if os == "Darwin"
+    map <C-K> :py3f /usr/local/Cellar/clang-format/12.0.0/share/clang/clang-format.py<cr>
+    imap <C-K> <c-o>:py3f /usr/local/Cellar/clang-format/12.0.0/share/clang/clang-format.py<cr>
+else
+    map <C-K> :py3f /usr/lib/llvm/12/share/clang/clang-format.py<cr>
+    imap <C-K> <c-o>:py3f /usr/lib/llvm/12/share/clang/clang-format.py<cr>
+endif
 
 " Lsp Server
 let g:lsp_ale_auto_config_vim_lsp = 0
