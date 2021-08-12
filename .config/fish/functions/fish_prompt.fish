@@ -4,8 +4,9 @@ function fish_prompt --description 'Write out the prompt'
     if set -l git_branch (command git symbolic-ref HEAD 2>/dev/null | string replace refs/heads/ '')
         set git_branch (set_color -o blue)"$git_branch"
         if not command git diff-index --quiet HEAD --
+            set -l upstream (git rev-parse --abbrev-ref --symbolic-full-name @{u})
             if set -l count (command git rev-list --count --left-right $upstream...HEAD 2>/dev/null)
-                echo $count | read -l ahead behind
+                echo $count | read -l behind ahead
                 if test "$ahead" -gt 0
                     set git_status "$git_status"(set_color red)⬆
                 end
