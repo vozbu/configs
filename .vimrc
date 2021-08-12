@@ -38,6 +38,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'google/vim-searchindex'
+"Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
 Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -102,7 +103,7 @@ set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/
 autocmd BufNewFile,BufRead *.dox setlocal syntax=doxygen    " поддержка синтаксиса Doxygen в .dox-файлах
 autocmd FileType cpp setlocal keywordprg=cppman             " По Shift + K открывать документацию к cpp с использованием cppman
 autocmd FileType go setlocal ts=4                           " размер таба 4 символа
-autocmd FileType c,cmake,cpp,go,markdown,python,sh setlocal textwidth=120 " автоматически переносить строки длиннее 120 символов
+autocmd FileType c,cmake,cpp,go,markdown,python,sh setlocal textwidth=110 " автоматически переносить строки длиннее 110 символов
 autocmd FileType markdown setlocal spell spelllang=en,ru
 autocmd BufNewFile,BufRead .vimrc setlocal textwidth=0
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
@@ -197,8 +198,8 @@ set tags^=./.git/tags;
 "map <C-K> :!clang-format -i %<CR>
 "imap <C-K> <c-o>:!clang-format <CR>
 "vmap <C-K> <c-o>:!clang-format <CR>
-map <C-K> :py3f /usr/lib/llvm/11/share/clang/clang-format.py<cr>
-imap <C-K> <c-o>:py3f /usr/lib/llvm/11/share/clang/clang-format.py<cr>
+map <C-K> :py3f /usr/lib/llvm/12/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /usr/lib/llvm/12/share/clang/clang-format.py<cr>
 
 " Git integration
 set laststatus=2
