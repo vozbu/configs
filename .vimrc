@@ -33,28 +33,40 @@ Plugin 'surround.vim'
 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
+"Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'google/vim-searchindex'
 "Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'pboettch/vim-cmake-syntax'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'preservim/nerdcommenter'
 Plugin 'preservim/nerdtree'
 Plugin 'rking/ag.vim'
-Plugin 'shime/vim-livedown.git'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'tyru/open-browser.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-jp/vim-go-extra'
 Plugin 'vim-scripts/mru.vim'
+
+" Markdown
+Plugin 'mzlogin/vim-markdown-toc'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'shime/vim-livedown.git'
+
+" Syntax
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'pboettch/vim-cmake-syntax'
+
+" Languages support
+Plugin 'fatih/vim-go'
+Plugin 'vim-jp/vim-go-extra'
+
+Plugin 'dense-analysis/ale'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'rhysd/vim-lsp-ale'
+
+Plugin 'mattn/vim-lsp-settings'
 
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
@@ -200,6 +212,58 @@ set tags^=./.git/tags;
 "vmap <C-K> <c-o>:!clang-format <CR>
 map <C-K> :py3f /usr/lib/llvm/12/share/clang/clang-format.py<cr>
 imap <C-K> <c-o>:py3f /usr/lib/llvm/12/share/clang/clang-format.py<cr>
+
+" Lsp Server
+let g:lsp_ale_auto_config_vim_lsp = 0
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_settings = {
+\   'pyls-all': {
+\     'workspace_config': {
+\       'pylsp': {
+\         'configurationSources': ['flake8'],
+\          'plugins': { 'flake8' : { 'maxLineLength' : 120 }}
+\       }
+\     }
+\   },
+\}
+
+let g:ale_python_flake8_options = '--max-line-length=120'
+let g:ale_python_autopep8_options = '--max-line-length=120'
+"let g:ale_python_pylsp_options = '--max-line-length=120'
+"let g:ale_linters = {'python': ['pylsp']}
+let g:ale_linters = {'python': ['flake8']}
+let g:ale_fixers = {'python': ['autopep8']}
+"let g:ale_fixers = {'python': ['autopep8', 'pylsp']}
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
 " Git integration
 set laststatus=2
