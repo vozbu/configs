@@ -2,8 +2,9 @@ function fish_prompt --description 'Write out the prompt'
     set laststatus $status
 
     if set -l git_branch (command git symbolic-ref HEAD 2>/dev/null | string replace refs/heads/ '')
-        set git_branch (set_color -o blue)"$git_branch"
-        set -l upstream (git rev-parse --abbrev-ref --symbolic-full-name @{u})
+        #set git_branch (set_color -o blue)"$git_branch"
+
+        set -l upstream (git rev-parse --abbrev-ref --symbolic-full-name @{u} 2> /dev/null)
         if set -l count (command git rev-list --count --left-right $upstream...HEAD 2>/dev/null)
             echo $count | read -l behind ahead
             if test "$ahead" -gt 0
@@ -13,7 +14,10 @@ function fish_prompt --description 'Write out the prompt'
                 set git_status "$git_status"(set_color red)⬇
             end
         end
+
         if not command git diff-index --quiet HEAD --
+            set git_branch_line (set_color red)"$git_branch"(set_color white)
+
             for i in (git status --porcelain | string sub -l 2 | uniq)
                 switch $i
                     case "."
@@ -30,11 +34,15 @@ function fish_prompt --description 'Write out the prompt'
                         set git_status "$git_status"(set_color red)≠
                 end
             end
+        else
+            set git_branch_line (set_color green)"$git_branch"(set_color white)
         end
+
         if not set -q git_status
             set git_status (set_color green):
         end
-        set git_info "(git$git_status$git_branch"(set_color white)")"
+
+        set git_info "(git: $git_branch_line $git_status"(set_color white)")"
     end
 
     # Disable PWD shortening by default.
