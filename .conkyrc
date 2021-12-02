@@ -36,18 +36,18 @@ conky.config = {
    stippled_borders = 0,
    template0 = [[${if_existing /dev/\1}
  ${color3}\1$color ${diskio_read \1}          ${color3}\1$color ${diskio_write \1}
- ${diskiograph_read \1 30,200}${alignr}${diskiograph_write \1 30,200}$endif]],
+ ${diskiograph_read \1 15,100}${alignr}${diskiograph_write \1 15,100}$endif]],
    template1 = [[${if_mounted \1}
- ${color2}\1$color ${alignr}${fs_free \1} ${if_match ${fs_used_perc \1} >= 90}$color5$endif${fs_bar 10,220 \1}${if_match ${fs_used_perc \1} >= 90}$color$endif$endif]],
+ ${color2}\1$color ${alignr}${fs_free \1} ${if_match ${fs_used_perc \1} >= 90}$color5$endif${fs_bar 10,150 \1}${if_match ${fs_used_perc \1} >= 90}$color$endif$endif]],
    template2 = [[${if_up \1}${color3}\1$color  ${downspeed \1}        ${color3}\1$color  ${upspeed \1}
        ${totaldown \1}              ${totalup \1}
- ${downspeedgraph \1 40,200} ${alignr}${upspeedgraph \1 40,200}
+ ${downspeedgraph \1 25,200} ${alignr}${upspeedgraph \1 25,200}
  Address: ${addrs \1} ($nodename)$endif]],
    template3 = [[${if_existing /dev/\1}
  ${color3}\2$color ${diskio_read \1}          ${color3}\2$color ${diskio_write \1}
- ${diskiograph_read \1 30,200}${alignr}${diskiograph_write \1 30,200}$endif]],
+ ${diskiograph_read \1 15,200}${alignr}${diskiograph_write \1 15,200}$endif]],
    template4 = [[${if_mounted \1}
- ${color2}\2$color ${alignr}${fs_free \1} ${fs_bar 10,220 \1}$endif]],
+ ${color2}\2$color ${alignr}${fs_free \1} ${fs_bar 10,150 \1}$endif]],
    update_interval = 1.0,
    uppercase = false,
    use_spacer = 'right',
@@ -60,14 +60,14 @@ ${color1}Uptime$color $uptime
 ${color1}Processing$color
  ${color2}CPU
   ${color3}Total$color ${cpu cpu0}% ${cpubar cpu0 10}${color4}
-  ${cpubar cpu1 10,180} ${cpubar  cpu9 10,180} ${cpubar cpu17 10}${voffset -15}
-  ${cpubar cpu2 10,180} ${cpubar cpu10 10,180} ${cpubar cpu18 10}${voffset -15}
-  ${cpubar cpu3 10,180} ${cpubar cpu11 10,180} ${cpubar cpu19 10}${voffset -15}
-  ${cpubar cpu4 10,180} ${cpubar cpu12 10,180} ${cpubar cpu20 10}${voffset -15}
-  ${cpubar cpu5 10,180} ${cpubar cpu13 10,180} ${cpubar cpu21 10}${voffset -15}
-  ${cpubar cpu6 10,180} ${cpubar cpu14 10,180} ${cpubar cpu22 10}${voffset -15}
-  ${cpubar cpu7 10,180} ${cpubar cpu15 10,180} ${cpubar cpu23 10}${voffset -15}
-  ${cpubar cpu8 10,180} ${cpubar cpu16 10,180} ${cpubar cpu24 10}${voffset -15}
+  ${cpubar cpu1 5,130} ${cpubar  cpu9 5,130} ${cpubar cpu17 5}${voffset -10}
+  ${cpubar cpu2 5,130} ${cpubar cpu10 5,130} ${cpubar cpu18 5}${voffset -10}
+  ${cpubar cpu3 5,130} ${cpubar cpu11 5,130} ${cpubar cpu19 5}${voffset -10}
+  ${cpubar cpu4 5,130} ${cpubar cpu12 5,130} ${cpubar cpu20 5}${voffset -10}
+  ${cpubar cpu5 5,130} ${cpubar cpu13 5,130} ${cpubar cpu21 5}${voffset -10}
+  ${cpubar cpu6 5,130} ${cpubar cpu14 5,130} ${cpubar cpu22 5}${voffset -10}
+  ${cpubar cpu7 5,130} ${cpubar cpu15 5,130} ${cpubar cpu23 5}${voffset -10}
+  ${cpubar cpu8 5,130} ${cpubar cpu16 5,130} ${cpubar cpu24 5}${voffset -10}
  ${color2}Freq$color${font :size=12}
     ${freq_g  1} ${freq_g  2} ${freq_g  3} ${freq_g  4} ${freq_g  5} ${freq_g  6} ${freq_g  7} ${freq_g  8}
     ${freq_g  9} ${freq_g 10} ${freq_g 11} ${freq_g 12} ${freq_g 13} ${freq_g 14} ${freq_g 15} ${freq_g 16}
@@ -78,7 +78,7 @@ ${color1}Processing$color
  ${color2}Cached$color $cached
 $stippled_hr
 ${color1}Temperatures
- ${color2}CPU$color ${hwmon 1 temp 1} ${color2}GPU$color ${nvidia gputemp}  ${color2}MB$color ${hwmon 0 temp 3}
+ ${color2}CPU$color ${hwmon 1 temp 1} ${color2}GPU$color ${nvidia gputemp}  ${color2}MB$color ${hwmon 0 temp 2} ${hwmon 0 temp 3}
  ${color2}HDD$color ${color3}nvme$color ${head /tmp/nvme_temp 1 1} ${color3}sda$color ${hddtemp /dev/sda}${color3}sdb$color ${hddtemp /dev/sdb}
 $stippled_hr
 ${color1}Fans
@@ -89,7 +89,7 @@ ${color1}Disk IO$color
  ${color2}Read                 Write$color
  ${template0 sda}${template0 sdb}${template0 sdc}${template0 sdd}${template0 sde}${template0 sdf}${template0 sdg}${template0 sdh}${template0 sdi}${template3 nvme0n1 nvm}
 $stippled_hr
-${color1}Filesystems$color${template1 /}${template1 /boot}${template4 /var/lib/docker docker}${template1 /home}${template1 /mnt/media}${template1 /mnt/pmedia}${template1 /mnt/hdd}${template1 /mnt/backups}${template1 /mnt/ext_backups}
+${color1}Filesystems$color${template1 /}${template1 /boot}${template4 /var/lib/docker docker}${template1 /home}${template1 /mnt/media}${template1 /mnt/pmedia}${template1 /mnt/hdd}${template1 /mnt/backups}
 $stippled_hr
 ${color1}Networking
  ${color2}Down                 Up
