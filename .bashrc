@@ -31,12 +31,13 @@ shopt -s cmdhist
 shopt -s cdspell
 
 export GOPATH="$HOME/programming/go"
-export PATH="$GOPATH/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/bin:$PATH"
 export CCACHE_COMPRESS=1
 export CCACHE_SLOPPINESS=pch_defines,time_macros
 #export LANG="ru_RU.UTF-8"
 export EDITOR="/usr/bin/vim"
 export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
+export MANPATH="$HOME/.local/share/man:$MANPATH"
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 export GOPATH="$HOME/programming/go"
 
