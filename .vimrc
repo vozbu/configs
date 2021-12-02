@@ -113,9 +113,10 @@ set path+=/usr/include,/usr/local/**/include,/usr/lib/gcc/x86_64-pc-linux-gnu/*/
 " autocmd BufNewFile,BufRead *.cpp set syntax=cpp11   " поддержка синтаксиса C++11 в .cpp-файлах
 " autocmd BufNewFile,BufRead *.cpp set syntax=cpp   " поддержка синтаксиса C++11 в .cpp-файлах, включено в плагине
 autocmd BufNewFile,BufRead *.dox setlocal syntax=doxygen    " поддержка синтаксиса Doxygen в .dox-файлах
+autocmd BufNewFile,BufRead *.pp setlocal syntax=ruby
 autocmd FileType cpp setlocal keywordprg=cppman             " По Shift + K открывать документацию к cpp с использованием cppman
 autocmd FileType go setlocal ts=4                           " размер таба 4 символа
-autocmd FileType c,cmake,cpp,go,markdown,python,sh setlocal textwidth=110 " автоматически переносить строки длиннее 110 символов
+autocmd FileType c,cmake,cpp,go,python,sh setlocal textwidth=110 " автоматически переносить строки длиннее 110 символов
 autocmd FileType markdown setlocal spell spelllang=en,ru
 autocmd BufNewFile,BufRead .vimrc setlocal textwidth=0
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
@@ -250,7 +251,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
     nmap <buffer> gr <plug>(lsp-references)
     nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
+    "nmap <buffer> gt <plug>(lsp-type-definition)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
     nmap <buffer> [g <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
