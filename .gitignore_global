@@ -1,7 +1,9 @@
 *~
 *.swp
+compile_commands.json
 tags
 
+.cache/
 build/
 build_*/
 fast-build/
