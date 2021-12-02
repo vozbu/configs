@@ -1,3 +1,8 @@
+[alias]
+    list-merged-local-branches = ! git branch --merged master | grep -Ev '(^\\*|master)'
+    list-merged-remote-branches = ! git branch -r --merged master | grep -Ev '(^\\*|master)' | grep '^origin/' | cut -d '/' -f2-
+    delete-merged-local-branches = ! git branch --merged master | grep -Ev '(^\\*|master)' | xargs -n 1 git branch -d
+    delete-merged-remote-branches = ! git branch -r --merged master | grep -Ev '(^\\*|master)' | grep '^origin/' | cut -d '/' -f2- | xargs -n 1 git push --delete origin
 [init]
     templatedir = ~/.gittemplate
 [color]
@@ -39,3 +44,13 @@
     autoStash = true
 [grep]
     threads = 8
+[includeIf "gitdir:~/programming/rb/"]
+    path = .gitconfig-work
+[includeIf "gitdir:~/programming/rb-adm/"]
+    path = .gitconfig-work
+[includeIf "gitdir:~/programming/target/"]
+    path = .gitconfig-work
+[includeIf "gitdir:~/programming/target-cpp/"]
+    path = .gitconfig-work
+[includeIf "gitdir:~/programming/target-web/"]
+    path = .gitconfig-work
