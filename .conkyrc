@@ -98,4 +98,6 @@ ${color1}Networking
  ${template2 tun0}
 $stippled_hr
 SSH connections: ${tcp_portmon 22 22 count}
+HTTP connections: ${tcp_portmon 80 80 count}
+HTTPS connections: ${tcp_portmon 80 80 count}
 ]];
