@@ -17,6 +17,8 @@
 [merge]
     conflictstyle = diff3
     ff = false
+    tool = vimdiff
+    guitool = meld
 [pack]
     threads = 8
 [user]
