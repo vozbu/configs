@@ -1,8 +1,8 @@
 [alias]
     list-merged-local-branches = ! git branch --merged master | grep -Ev '(^\\*|master)'
-    list-merged-remote-branches = ! git branch -r --merged master | grep -Ev '(^\\*|master)' | grep '^origin/' | cut -d '/' -f2-
+    list-merged-remote-branches = ! git branch -r --merged master | grep -Ev '(^\\*|master)' | grep '^ *origin/' | cut -d '/' -f2-
     delete-merged-local-branches = ! git branch --merged master | grep -Ev '(^\\*|master)' | xargs -n 1 git branch -d
-    delete-merged-remote-branches = ! git branch -r --merged master | grep -Ev '(^\\*|master)' | grep '^origin/' | cut -d '/' -f2- | xargs -n 1 git push --delete origin
+    delete-merged-remote-branches = ! git branch -r --merged master | grep -Ev '(^\\*|master)' | grep '^ *origin/' | cut -d '/' -f2- | xargs -n 1 git push --delete origin
 [init]
     templatedir = ~/.gittemplate
 [color]
