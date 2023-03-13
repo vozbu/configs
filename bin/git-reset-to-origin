@@ -1,0 +1,14 @@
+#!/bin/bash
+
+git_branch()
+{
+    GIT_BRANCH=$(git symbolic-ref HEAD 2>/dev/null)
+    if [[ ! -z $GIT_BRANCH ]]; then
+        GIT_BRANCH=${GIT_BRANCH#refs/heads/}
+    fi
+    echo $GIT_BRANCH
+}
+
+BRANCH=`git_branch`
+
+git reset --hard origin/$BRANCH
