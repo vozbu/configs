@@ -34,7 +34,8 @@ export GOPATH="$HOME/programming/go"
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/bin:$PATH"
 export CCACHE_COMPRESS=1
 export CCACHE_SLOPPINESS=pch_defines,time_macros
-#export LANG="ru_RU.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export EDITOR="/usr/bin/vim"
 export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
 export MANPATH="$HOME/.local/share/man:$MANPATH"
@@ -42,21 +43,33 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 export GOPATH="$HOME/programming/go"
 
 if [[ `uname` == 'Darwin' ]]; then
-    if which brew > /dev/null; then
-        if [ -f $(brew --prefix)/etc/bash_completion ]; then
-            . $(brew --prefix)/etc/bash_completion
-        elif [[ -d $(brew --prefix)/etc/bash_completion.d ]]; then
-            for i in `ls $(brew --prefix)/etc/bash_completion.d`; do
-                source $(brew --prefix)/etc/bash_completion.d/$i
+    # for MacOS Catalina and further
+    #export BASH_SILENCE_DEPRECATION_WARNING=1
+
+    export HOMEBREW_PREFIX="/opt/homebrew"
+    export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar"
+    export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}"
+    export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${PATH+:$PATH}"
+    export MANPATH="${HOMEBREW_PREFIX}/share/man:${MANPATH+:$MANPATH}:"
+    export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}"
+
+    export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
+    export MANPATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnuman:$MANPATH"
+    export MANPATH="${HOMEBREW_PREFIX}/Cellar/gcc/7.3.0/share/man:$MANPATH"
+
+    export EDITOR="${HOMEBREW_PREFIX}/bin/vim"
+
+    if type brew &>/dev/null; then
+        HOMEBREW_PREFIX="$(brew --prefix)"
+        if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+            source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+        else
+            for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+                [[ -r "$COMPLETION" ]] && source "$COMPLETION"
             done
         fi
     fi
-
-    export PATH="/usr/local/sbin:$PATH"
-    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-    export MANPATH="/usr/local/Cellar/gcc/7.3.0/share/man:$MANPATH"
 
     alias grep='grep --color=auto'
     # for native MacOS ls
