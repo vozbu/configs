@@ -1,3 +1,7 @@
+" apply vim default config
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 " Buttons
 " <C-x> - Ctrl+x
 " <CR> - Enter
@@ -88,11 +92,12 @@ endif
 "highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 syntax on                               " включаем подсветку синтаксиса
 set softtabstop=4 shiftwidth=4 expandtab
-set cindent                             " отступы в стиле Си
+set cindent                             " отступы в стиле Си - сильно тормозят на файлах в несколько сот тысяч строк
 set autoread                            " автоматически перезагружать файл в буфер при его изменении на диске
 set autowrite                           " сохранить файл перед выполнением команды
 set number                              " вывод номеров строк
 set ruler                               " показывать текущую строку и столбец справа снизу
+set showcmd                             " reenable option after vim-airline override - show currently being typed cmd in status bad
 set is                                  " incremental search
 set hlsearch                            " highlight search
 set fencs=ucs-bom,utf-8,default,cp1251  " fileencodings: list of char-encs considered when starting to edit an existing file"
