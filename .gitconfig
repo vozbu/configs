@@ -3,6 +3,7 @@
     list-merged-remote-branches = ! git branch -r --merged master | grep -Ev '(^\\*|master)' | grep '^ *origin/' | cut -d '/' -f2-
     delete-merged-local-branches = ! git branch --merged master | grep -Ev '(^\\*|master)' | xargs -n 1 git branch -d
     delete-merged-remote-branches = ! git branch -r --merged master | grep -Ev '(^\\*|master)' | grep '^ *origin/' | cut -d '/' -f2- | xargs -n 1 git push --delete origin
+    delete-local-branches-except-master = ! git checkout master && git branch | grep -v master | xargs git branch -D
 [init]
     templatedir = ~/.gittemplate
 [color]
@@ -25,7 +26,7 @@
     name = Valeriy Bykov
     email = valery.bickov@gmail.com
 [core]
-#    autocrlf = input
+    autocrlf = input
     excludesfile = ~/.gitignore_global
     quotepath = false
 [push]
@@ -56,3 +57,10 @@
     path = .gitconfig-work
 [includeIf "gitdir:~/programming/target-web/"]
     path = .gitconfig-work
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[advice]
+	skippedCherryPicks = false

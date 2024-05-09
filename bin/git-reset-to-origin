@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# hard resets your current branch to its state in origin
+
 git_branch()
 {
     GIT_BRANCH=$(git symbolic-ref HEAD 2>/dev/null)
