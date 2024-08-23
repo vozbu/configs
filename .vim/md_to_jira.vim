@@ -15,3 +15,11 @@ silent! %s/^#/h1./
 silent! %s/^```\([a-z]\+\)$/{code:\1}/
 silent! %s/^```$/{code}/
 silent! %s/`\(.\{-}\)`/{{\1}}/g
+
+" remove trailing <br>s
+silent! %s/<br>$//
+
+" change text formatting
+silent! %s/\*\*/*/g
+silent! %s/\[/\\\[/g
+silent! %s/\]/\\\]/g
