@@ -137,6 +137,13 @@ autocmd BufReadPost *
 \   exe "normal! g`\"" |
 \ endif
 
+" вставляем текущие дату и время в конец файла timelog.txt
+" делаем это после предыдущей автокоманды, чтобы корректно перейти в конец файла
+" и открыть режим ввода
+autocmd BufNewFile,BufRead timelog.txt normal! G
+autocmd BufNewFile,BufRead timelog.txt :put =strftime('%Y.%m.%d %H:%M ')
+autocmd BufNewFile,BufRead timelog.txt normal! $
+autocmd BufNewFile,BufRead timelog.txt start!
 if has('gui_running')
     if os == "Darwin"
         set guifont=Meslo\ LG\ M\ for\ Powerline:h14
