@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 
 import sys, os, string, re, signal, errno
 
@@ -12,7 +12,7 @@ colours = {
             'reverse'    :    "\033[7m",
             'concealed'  :    "\033[8m",
 
-            'black'      :    "\033[30m", 
+            'black'      :    "\033[30m",
             'red'        :    "\033[31m",
             'green'      :    "\033[32m",
             'yellow'     :    "\033[33m",
@@ -21,7 +21,7 @@ colours = {
             'cyan'       :    "\033[36m",
             'white'      :    "\033[37m",
 
-            'on_black'   :    "\033[40m", 
+            'on_black'   :    "\033[40m",
             'on_red'     :    "\033[41m",
             'on_green'   :    "\033[42m",
             'on_yellow'  :    "\033[43m",
@@ -51,7 +51,7 @@ colours = {
             'bright_cyan'       :    "\033[36;96m",
             'bright_white'      :    "\033[37;97m",
 
-            'on_bright_black'   :    "\033[40;100m", 
+            'on_bright_black'   :    "\033[40;100m",
             'on_bright_red'     :    "\033[41;101m",
             'on_bright_green'   :    "\033[42;102m",
             'on_bright_yellow'  :    "\033[43;103m",
@@ -112,7 +112,7 @@ while not is_last:
     ll = {'count':"more"}
     while 1:
         l = f.readline()
-        if l == "": 
+        if l == "":
             is_last = 1
             break
         if l[0] == "#" or l[0] == '\012':
@@ -241,7 +241,7 @@ while 1:
     clineprev = ""
     if not skip:
         for i in range(len(line)):
-            if cline[i] == clineprev: 
+            if cline[i] == clineprev:
                 nline = nline + line[i]
             else:
                 nline = nline + cline[i] + line[i]
