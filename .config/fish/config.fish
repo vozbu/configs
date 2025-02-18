@@ -6,6 +6,7 @@ set -gx CCACHE_COMPRESS 1
 set -gx CCACHE_SLOPPINESS pch_defines,time_macros
 set -gx EDITOR "/usr/bin/vim"
 set -gx MANPAGER "env MAN_PN=1 vim -M +MANPAGER -"
+set -gx MANPAGER "vim -c ASMANPAGER -"
 set -gx MANPATH "$HOME/.local/share/man" "$MANPATH"
 set -gx GIT_DISCOVERY_ACROSS_FILESYSTEM 1
 set -gx MAKEFLAGS "-j "(nproc)
