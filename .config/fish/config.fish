@@ -1,6 +1,7 @@
-set -gx PATH /home/vozbu/.local/bin /home/vozbu/.cargo/bin /home/vozbu/programming/go/bin /home/vozbu/bin $PATH
+set -gx PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/bin $PATH
 set -gx GOPATH "$HOME/programming/go"
 set -gx GOFLAGS "-mod=vendor"   # https://github.com/golang/go/issues/41301
+set PATH $GOPATH/bin $PATH
 set -gx CCACHE_COMPRESS 1
 set -gx CCACHE_SLOPPINESS pch_defines,time_macros
 set -gx EDITOR "/usr/bin/vim"
