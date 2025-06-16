@@ -96,7 +96,7 @@ endif
 "highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 syntax on                               " включаем подсветку синтаксиса
 set softtabstop=4 shiftwidth=4 expandtab
-set cindent                             " отступы в стиле Си - сильно тормозят на файлах в несколько сот тысяч строк
+" set cindent                             " отступы в стиле Си - сильно тормозят на файлах в несколько сот тысяч строк
 set autoread                            " автоматически перезагружать файл в буфер при его изменении на диске
 set autowrite                           " сохранить файл перед выполнением команды
 set number                              " вывод номеров строк
@@ -125,7 +125,7 @@ autocmd BufNewFile,BufRead nginx.conf.tmpl setlocal syntax=nginx
 autocmd FileType cpp setlocal keywordprg=cppman             " По Shift + K открывать документацию к cpp с использованием cppman
 autocmd FileType go setlocal ts=4                           " размер таба 4 символа
 autocmd FileType c,cmake,cpp,go,python,sh setlocal textwidth=110 " автоматически переносить строки длиннее 110 символов
-autocmd FileType markdown setlocal spell spelllang=en,ru
+autocmd FileType markdown setlocal spell spelllang=en,ru textwidth=110
 autocmd BufNewFile,BufRead .vimrc setlocal textwidth=0
 autocmd BufWritePre * :%s/\s\+$//e      " убираем конечные пробелы при сохранении любого типа файла
 autocmd VimLeave * :mksession! ~/.vim.lastsession   " автоматически сохраняем сессию перед выходом
@@ -151,6 +151,7 @@ autocmd BufNewFile,BufRead timelog.txt start!
 if has('gui_running')
     if os == "Darwin"
         set guifont=Meslo\ LG\ M\ for\ Powerline:h14
+        "set guifont=Meslo\ LG\ S\ for\ Powerline:h14
         "set guifont=Anonymous\ Pro\ for\ Powerline:h16
     else
         set guifont=xos4\ Terminus\ 14
