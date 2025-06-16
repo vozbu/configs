@@ -73,6 +73,9 @@ Plugin 'rhysd/vim-lsp-ale'
 
 Plugin 'mattn/vim-lsp-settings'
 
+" OpenAPI (Swagger)
+Plugin 'xavierchow/vim-swagger-preview'
+
 if os == "Darwin"
     Plugin 'uarun/vim-protobuf'
 endif
@@ -345,6 +348,9 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " for markdown syntax
 set conceallevel=2
+
+" Swagger preview
+nmap <unique> <leader>q <Plug>GenerateDiagram
 
 " маппим русские буквы в английские для управления
 map ё `
