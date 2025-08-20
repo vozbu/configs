@@ -1,6 +1,8 @@
 function fish_prompt --description 'Write out the prompt'
     set laststatus $status
 
+    if test "$cvs_info" = ''
+        set cvs_info (git-prompt)
     end
 
     # Disable PWD shortening by default.
