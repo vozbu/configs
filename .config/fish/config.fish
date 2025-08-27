@@ -15,3 +15,7 @@ set -gx TESSDATA_PREFIX /usr/share/tessdata
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 alias scp="scp -p -r"
 alias lg="lazygit"
+alias ccat="highlight"
+function cless
+    ccat $argv -O truecolor | less -R
+end
